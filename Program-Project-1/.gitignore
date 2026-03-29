@@ -1,0 +1,14 @@
+# Python / virtual env
+.venv/
+.vs/
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+*.py[cod]
+
+# Generated parser/build artifacts
+parser.out
+parsetab.py
+ast.png
+result.exe
