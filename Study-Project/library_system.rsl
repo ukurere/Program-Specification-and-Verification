@@ -1,0 +1,139 @@
+LIBRARY_SYSTEM =
+class
+
+  type
+    BookId,
+    UserId,
+    Title = Text,
+
+    Book == mk_book(
+      book_id    : BookId,
+      title      : Title,
+      references : BookId-set
+    ),
+
+    Library == mk_library(
+      all_books : BookId -m→ Book,
+      available : BookId-set,
+      borrowed  : BookId -m→ UserId,
+      users     : UserId-set
+    )
+
+  value
+    empty_library : Library,
+
+    is_library_book : BookId × Library → Bool,
+    is_available    : BookId × Library → Bool,
+    is_borrowed_by  : BookId × UserId × Library → Bool,
+    user_exists     : UserId × Library → Bool,
+
+    is_well_formed  : Library → Bool,
+
+    ∼add_book    : Book × Library → Library,
+    ∼remove_book : BookId × Library → Library,
+
+    ∼add_user    : UserId × Library → Library,
+    ∼remove_user : UserId × Library → Library,
+
+    ∼borrow_book    : UserId × BookId × Library → Library,
+    ∼return_book    : UserId × BookId × Library → Library,
+
+    ∼available_refs : BookId × Library → BookId-set
+
+  axiom
+    forall bid : BookId, uid : UserId,
+           bk : Book, lib : Library •
+
+    [is_library_book_def]
+    is_library_book(bid, lib) ≡ bid ∈ dom all_books(lib),
+
+    [is_available_def]
+    is_available(bid, lib) ≡ bid ∈ available(lib),
+
+    [is_borrowed_by_def]
+    is_borrowed_by(bid, uid, lib) ≡
+      bid ∈ dom borrowed(lib) ∧ borrowed(lib)(bid) = uid,
+
+    [user_exists_def]
+    user_exists(uid, lib) ≡ uid ∈ users(lib),
+
+    [is_well_formed_def]
+    is_well_formed(lib) ≡
+      available(lib) ∩ dom borrowed(lib) = {} ∧
+      available(lib) ∪ dom borrowed(lib) ⊆ dom all_books(lib),
+
+    [empty_library_def]
+    empty_library ≡ mk_library([], {}, [], {}),
+
+    [add_book_def]
+    add_book(bk, lib) ≡
+      mk_library(
+        all_books(lib) † [book_id(bk) ↦ bk],
+        available(lib) ∪ {book_id(bk)},
+        borrowed(lib),
+        users(lib)
+      )
+    pre ¬is_library_book(book_id(bk), lib),
+
+    [remove_book_def]
+    remove_book(bid, lib) ≡
+      mk_library(
+        all_books(lib),
+        available(lib) \ {bid},
+        borrowed(lib),
+        users(lib)
+      )
+    pre is_available(bid, lib),
+
+    [add_user_def]
+    add_user(uid, lib) ≡
+      mk_library(
+        all_books(lib),
+        available(lib),
+        borrowed(lib),
+        users(lib) ∪ {uid}
+      )
+    pre ¬user_exists(uid, lib),
+
+    [remove_user_def]
+    remove_user(uid, lib) ≡
+      mk_library(
+        all_books(lib),
+        available(lib),
+        borrowed(lib),
+        users(lib) \ {uid}
+      )
+    pre user_exists(uid, lib) ∧ ¬(uid ∈ rng borrowed(lib)),
+
+    [borrow_book_def]
+    borrow_book(uid, bid, lib) ≡
+      mk_library(
+        all_books(lib),
+        available(lib) \ {bid},
+        borrowed(lib) † [bid ↦ uid],
+        users(lib)
+      )
+    pre user_exists(uid, lib) ∧ is_available(bid, lib),
+
+    [return_book_def]
+    return_book(uid, bid, lib) ≡
+      mk_library(
+        all_books(lib),
+        available(lib) ∪ {bid},
+        borrowed(lib) \ {bid},
+        users(lib)
+      )
+    pre is_library_book(bid, lib) ∧
+        is_borrowed_by(bid, uid, lib),
+
+    [available_refs_def]
+    available_refs(bid, lib) ≡
+      { ref | ref : BookId •
+          ref ∈ references(all_books(lib)(bid)) ∧
+          is_available(ref, lib) }
+    pre is_library_book(bid, lib)
+
+end
+
+
+
