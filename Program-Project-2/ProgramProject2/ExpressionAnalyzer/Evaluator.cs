@@ -19,7 +19,7 @@ namespace ExpressionAnalyzer
                     return Evaluate(node.Left!) * Evaluate(node.Right!);
                 case NodeType.Divide:
                     double divisor = Evaluate(node.Right!);
-                    if (divisor == 0)
+                    if (Math.Abs(divisor) < 1e-10)
                         throw new DivideByZeroException("Division by zero");
                     return Evaluate(node.Left!) / divisor;
                 case NodeType.Negate:
