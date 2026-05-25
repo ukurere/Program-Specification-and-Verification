@@ -7,9 +7,7 @@
     font-family: "Times New Roman", Times, serif;
     font-size: 14pt;
     line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    color: #000;
+    margin: 0; padding: 0; color: #000;
   }
   .page {
     width: 210mm;
@@ -34,13 +32,7 @@
   .title-topic      { font-size: 13pt; font-style: italic; }
   .title-sign       { text-align: right; margin-top: 30mm; font-size: 13pt; line-height: 2; }
   .title-bottom     { text-align: center; font-size: 13pt; margin-top: auto; padding-top: 20mm; }
-  h1 {
-    font-size: 16pt;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 20pt 0 12pt 0;
-  }
+  h1 { font-size: 16pt; font-weight: bold; text-align: center; text-transform: uppercase; margin: 20pt 0 12pt 0; }
   h2 { font-size: 14pt; font-weight: bold; margin: 16pt 0 8pt 0; }
   p  { text-indent: 1.25cm; margin: 0 0 6pt 0; text-align: justify; }
   p.no-indent { text-indent: 0; }
@@ -55,16 +47,14 @@
     line-height: 1.4;
   }
   table { width: 100%; border-collapse: collapse; margin: 10pt 0; font-size: 12pt; }
-  th, td { border: 1px solid #000; padding: 5pt 8pt; text-align: left; }
+  th, td { border: 1px solid #000; padding: 5pt 8pt; }
   th { background: #e8e8e8; font-weight: bold; text-align: center; }
   td.center { text-align: center; }
-  .figure-caption { text-align: center; font-size: 12pt; font-style: italic; margin: 4pt 0 12pt 0; }
   .warn  { color: #c0392b; font-weight: bold; }
   .ok    { color: #27ae60; font-weight: bold; }
-  .listing-title { font-weight: bold; margin: 14pt 0 4pt 0; }
-  ul, ol { margin: 4pt 0 8pt 1.25cm; padding-left: 1.25cm; }
-  li { margin-bottom: 4pt; }
-  .sonar-output {
+  .figure-caption { text-align: center; font-size: 12pt; font-style: italic; margin: 4pt 0 12pt 0; }
+  .listing-title  { font-weight: bold; margin: 14pt 0 4pt 0; }
+  .build-output {
     font-family: "Courier New", Courier, monospace;
     font-size: 10pt;
     background: #1e1e1e;
@@ -75,8 +65,11 @@
     white-space: pre-wrap;
     line-height: 1.5;
   }
-  .sonar-output .warn-color { color: #f0a500; }
-  .sonar-output .ok-color   { color: #4ec9b0; }
+  .build-output .green  { color: #4ec9b0; }
+  .build-output .yellow { color: #f0a500; }
+  .build-output .gray   { color: #808080; }
+  ul, ol { margin: 4pt 0 8pt 1.25cm; padding-left: 1.25cm; }
+  li { margin-bottom: 4pt; }
   @media print { .page { page-break-after: always; } pre { page-break-inside: avoid; } }
 </style>
 </head>
@@ -122,65 +115,56 @@
     <tr style="border:none;"><td style="border:none;">1. Мета роботи</td><td style="border:none; text-align:right;">3</td></tr>
     <tr style="border:none;"><td style="border:none;">2. Теоретичні відомості</td><td style="border:none; text-align:right;">3</td></tr>
     <tr style="border:none;"><td style="border:none;">3. Хід роботи</td><td style="border:none; text-align:right;">6</td></tr>
-    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.1. Підключення аналізаторів</td><td style="border:none; text-align:right;">6</td></tr>
-    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.2. Виявлені попередження SonarAnalyzer</td><td style="border:none; text-align:right;">6</td></tr>
-    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.3. Метрики до рефакторингу</td><td style="border:none; text-align:right;">7</td></tr>
-    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.4. Рефакторинг: виправлення S1244</td><td style="border:none; text-align:right;">8</td></tr>
-    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.5. Рефакторинг: покращення Lexer</td><td style="border:none; text-align:right;">9</td></tr>
-    <tr style="border:none;"><td style="border:none;">4. Результати після рефакторингу</td><td style="border:none; text-align:right;">11</td></tr>
-    <tr style="border:none;"><td style="border:none;">5. Висновок</td><td style="border:none; text-align:right;">12</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.1. Структура проєкту</td><td style="border:none; text-align:right;">6</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.2. Підключення аналізаторів</td><td style="border:none; text-align:right;">6</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.3. Виявлене попередження S1244</td><td style="border:none; text-align:right;">7</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.4. Збір метрик (до рефакторингу)</td><td style="border:none; text-align:right;">8</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.5. Рефакторинг Evaluator — виправлення S1244</td><td style="border:none; text-align:right;">9</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.6. Рефакторинг Lexer — підвищення MI</td><td style="border:none; text-align:right;">10</td></tr>
+    <tr style="border:none;"><td style="border:none;">4. Результати після рефакторингу</td><td style="border:none; text-align:right;">12</td></tr>
+    <tr style="border:none;"><td style="border:none;">5. Висновок</td><td style="border:none; text-align:right;">13</td></tr>
   </table>
 </div>
 
 <!-- ======= ТЕОРІЯ ======= -->
 <div class="page">
-
   <h1>1. Мета роботи</h1>
 
-  <p>Мета роботи — набути практичних навичок статичного аналізу коду за допомогою Roslyn-аналізатора SonarAnalyzer.CSharp та збору метрик якості коду за допомогою Microsoft.CodeAnalysis.Metrics. Зокрема, навчитись виявляти потенційні дефекти та проблеми підтримуваності без запуску програми, інтерпретувати метрики Cyclomatic Complexity та Maintainability Index, а також проводити цілеспрямований рефакторинг для покращення якості коду.</p>
+  <p>Мета роботи — набути практичних навичок статичного аналізу коду за допомогою Roslyn-аналізатора SonarAnalyzer.CSharp та збору метрик якості коду за допомогою бібліотеки Microsoft.CodeAnalysis.Metrics. Зокрема: навчитись виявляти потенційні дефекти у коді без його виконання, інтерпретувати метрики Cyclomatic Complexity та Maintainability Index, а також проводити цілеспрямований рефакторинг для покращення якості та підтримуваності коду.</p>
 
   <h1>2. Теоретичні відомості</h1>
 
   <h2>2.1. Статичний аналіз коду</h2>
 
-  <p><strong>Статичний аналіз коду</strong> (static code analysis) — це автоматизована перевірка вихідного коду без його виконання. Аналізатор досліджує синтаксичне дерево (AST) та семантичну модель програми, виявляє порушення правил кодування, потенційні помилки та проблеми якості.</p>
+  <p><strong>Статичний аналіз коду</strong> (static code analysis) — це автоматизована перевірка вихідного коду без його виконання. Аналізатор досліджує синтаксичне дерево (AST) та семантичну модель програми і виявляє потенційні дефекти, порушення правил кодування та проблеми підтримуваності.</p>
 
-  <p>Переваги статичного аналізу:</p>
-  <ul>
-    <li>виявлення дефектів на ранньому етапі — до компіляції або запуску тестів;</li>
-    <li>виявлення класу помилок, які важко відтворити у тестах (переповнення, некоректні порівняння float);</li>
-    <li>об'єктивна оцінка якості і складності коду через метрики;</li>
-    <li>інтеграція у CI/CD — автоматична перевірка при кожному коміті.</li>
-  </ul>
+  <p>На відміну від динамічного аналізу (тестування), статичний аналіз виявляє цілий клас проблем, які важко або неможливо відтворити у тестах: неточні порівняння чисел з плаваючою комою, потенційні витоки ресурсів, недосяжний код, некоректне перетворення типів. Крім того, аналіз виконується для всього коду одразу — не тільки для шляхів, покритих тестами.</p>
 
-  <h2>2.2. Roslyn та SonarAnalyzer.CSharp</h2>
+  <h2>2.2. Платформа Roslyn та SonarAnalyzer.CSharp</h2>
 
-  <p><strong>Roslyn</strong> (Microsoft .NET Compiler Platform) — платформа компіляторів C# та VB.NET з відкритим API для аналізу коду. Roslyn дозволяє стороннім бібліотекам підключатись як <em>аналізатори</em> (Roslyn Analyzers) і отримувати діагностичні повідомлення під час компіляції.</p>
+  <p><strong>Roslyn</strong> (Microsoft .NET Compiler Platform) — відкрита платформа компіляторів C# від Microsoft, яка надає API для програмного аналізу коду. Сторонні розробники можуть створювати <em>Roslyn-аналізатори</em> — бібліотеки, що підключаються до процесу компіляції та отримують повну семантичну модель кожного файлу.</p>
 
-  <p><strong>SonarAnalyzer.CSharp</strong> — набір Roslyn-аналізаторів від компанії SonarSource (розробники SonarQube). Підключається до проєкту як NuGet-пакет і перевіряє код на понад 500 правил якості, надійності та безпеки без потреби у зовнішньому сервері SonarQube.</p>
+  <p><strong>SonarAnalyzer.CSharp</strong> (версія 10.26.0) — набір Roslyn-аналізаторів від компанії SonarSource. Підключається як NuGet-пакет; активується автоматично при кожному виклику <code>dotnet build</code>. Перевіряє код на понад 500 правил якості, надійності та безпеки без потреби у зовнішньому сервері SonarQube.</p>
 
-  <h2>2.3. Правило S1244: порівняння чисел з плаваючою комою</h2>
+  <h2>2.3. Правило S1244 — порівняння чисел з плаваючою комою</h2>
 
   <p><strong>Назва:</strong> Floating point numbers should not be tested for equality<br>
-  <strong>Категорія:</strong> Bug / Reliability &nbsp;&nbsp; <strong>Серйозність:</strong> Major</p>
+  <strong>Категорія:</strong> Bug / Reliability &nbsp;&nbsp;&nbsp; <strong>Серйозність:</strong> Major</p>
 
-  <p>Числа з плаваючою комою (тип <code>double</code> та <code>float</code>) зберігаються у форматі IEEE 754 та можуть мати похибку округлення. Результат арифметичної операції може незначно відрізнятися від очікуваного математичного результату, що призводить до хибного результату при точному порівнянні:</p>
+  <p>Числа типу <code>double</code> та <code>float</code> зберігаються у форматі IEEE 754 і накопичують похибку округлення при арифметичних операціях. Навіть математично точний нуль може зберігатися як <code>-2.77e-17</code> після ланцюжка обчислень. Точне порівняння <code>divisor == 0</code> в такому разі поверне <code>false</code> — і ділення на «майже нуль» відбудеться без виключення.</p>
 
-  <pre>// Небезпечно — може дати хибний результат через похибку округлення
-if (divisor == 0)
-    throw new DivideByZeroException();
+  <p>Безпечна альтернатива — порівняння з допуском (epsilon):</p>
+  <pre>// Небезпечно — S1244
+if (divisor == 0) ...
 
-// Безпечно — порівняння з допуском epsilon
-if (Math.Abs(divisor) &lt; 1e-10)
-    throw new DivideByZeroException();</pre>
+// Безпечно — epsilon-порівняння
+if (Math.Abs(divisor) &lt; 1e-10) ...</pre>
 
-  <p>Значення epsilon (<code>1e-10</code>) обирається відповідно до необхідної точності обчислень.</p>
+  <h2>2.4. Метрики якості коду (Microsoft.CodeAnalysis.Metrics)</h2>
 
-  <h2>2.4. Метрики якості коду</h2>
-
-  <p><strong>Microsoft.CodeAnalysis.Metrics</strong> — офіційна бібліотека Microsoft для збору метрик якості коду. Запускається як MSBuild-ціль: <code>dotnet build ExpressionAnalyzer.csproj -t:Metrics</code>. Результат записується у XML-файл.</p>
-
-  <p>Основні метрики:</p>
+  <p><strong>Microsoft.CodeAnalysis.Metrics</strong> — офіційна MSBuild-ціль для збору метрик якості. Запускається командою:</p>
+  <pre>dotnet build ExpressionAnalyzer.csproj -t:Metrics</pre>
+  <p>Результат записується у файл <code>ExpressionAnalyzer.Metrics.xml</code>.</p>
 
   <table>
     <thead>
@@ -188,53 +172,70 @@ if (Math.Abs(divisor) &lt; 1e-10)
     </thead>
     <tbody>
       <tr>
-        <td><strong>Cyclomatic Complexity (CC)</strong></td>
-        <td>Кількість лінійно незалежних шляхів виконання у методі. Кожна розгалуження (<code>if</code>, <code>while</code>, <code>case</code>, <code>&amp;&amp;</code>, <code>||</code>) збільшує CC на 1.</td>
-        <td>≤ 10 на метод</td>
+        <td><strong>Maintainability Index (MI)</strong></td>
+        <td>Індекс підтримуваності (0–100), розрахований на основі складності, обсягу та кількості рядків. Вищий — краще.</td>
+        <td class="center">≥ 65</td>
       </tr>
       <tr>
-        <td><strong>Maintainability Index (MI)</strong></td>
-        <td>Індекс підтримуваності (0–100), розрахований на основі CC, числа рядків та індексу Halstead. Вищий — краще.</td>
-        <td>≥ 65</td>
+        <td><strong>Cyclomatic Complexity (CC)</strong></td>
+        <td>Кількість незалежних шляхів виконання. Кожний <code>if</code>, <code>while</code>, <code>case</code>, <code>&amp;&amp;</code>, <code>||</code> збільшує CC на 1.</td>
+        <td class="center">≤ 10 / метод</td>
       </tr>
       <tr>
         <td><strong>Class Coupling</strong></td>
-        <td>Кількість унікальних типів, від яких залежить клас/метод.</td>
-        <td>≤ 9</td>
+        <td>Кількість унікальних типів-залежностей класу.</td>
+        <td class="center">≤ 9</td>
       </tr>
       <tr>
         <td><strong>Depth of Inheritance</strong></td>
-        <td>Глибина дерева успадкування класу.</td>
-        <td>≤ 5</td>
+        <td>Глибина дерева успадкування.</td>
+        <td class="center">≤ 5</td>
       </tr>
       <tr>
-        <td><strong>Lines of Source (LoS)</strong></td>
-        <td>Кількість рядків вихідного коду (без порожніх і коментарів).</td>
-        <td>—</td>
+        <td><strong>Source Lines</strong></td>
+        <td>Рядки вихідного коду (без порожніх і коментарів).</td>
+        <td class="center">—</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>2.5. Cyclomatic Complexity та тестуваність</h2>
-
-  <p>Cyclomatic Complexity (CC) безпосередньо пов'язана з кількістю тест-кейсів, необхідних для 100% покриття гілок: метод з CC = N вимагає щонайменше N тестів. Метод з CC > 10 вважається складним і схильним до помилок. Рефакторинг такого методу (декомпозиція на приватні методи) знижує CC кожного з підметодів, навіть якщо сумарний CC assembly зростає.</p>
-
-  <h2>2.6. Maintainability Index та формула розрахунку</h2>
-
-  <p>MI розраховується за формулою Коулмана–Брауна на основі трьох параметрів: метрик Halstead (обсяг коду), CC та кількості рядків. MI у діапазоні 0–64 означає низьку підтримуваність (код важкий для розуміння та змін). MI ≥ 65 вважається прийнятним, MI ≥ 85 — відмінним.</p>
-
+  <p>Метрика CC безпосередньо пов'язана з тестуваністю: метод з CC = N вимагає щонайменше N тест-кейсів для повного покриття гілок. Метрика MI розраховується за формулою Коулмана–Брауна і враховує метрики Halstead, CC та кількість рядків коду.</p>
 </div>
 
 <!-- ======= ХІД РОБОТИ ======= -->
 <div class="page">
-
   <h1>3. Хід роботи</h1>
 
-  <h2>3.1. Підключення аналізаторів</h2>
+  <h2>3.1. Структура проєкту</h2>
+
+  <p>Для виконання лабораторної роботи створено окремий солюшн <code>ProgramProject4.sln</code>, що містить бібліотеку <code>ExpressionAnalyzer</code> з підключеними аналізаторами та тестовий проєкт <code>ExpressionAnalyzer.Tests</code> для верифікації результатів рефакторингу.</p>
+
+  <pre>Program-Project-4/ProgramProject4/
+├── ProgramProject4.sln
+├── ExpressionAnalyzer/
+│   ├── ExpressionAnalyzer.csproj    ← SonarAnalyzer + Metrics
+│   ├── Interfaces/
+│   │   ├── ILexer.cs
+│   │   ├── IParser.cs
+│   │   ├── IEvaluator.cs
+│   │   └── IExpressionSource.cs
+│   ├── Models/
+│   │   ├── Token.cs
+│   │   └── AstNode.cs
+│   ├── Lexer.cs                     ← рефакторинг: MI 54 → 70
+│   ├── Parser.cs
+│   ├── Evaluator.cs                 ← рефакторинг: S1244 виправлено
+│   └── FileExpressionSource.cs
+└── ExpressionAnalyzer.Tests/
+    ├── ExpressionAnalyzer.Tests.csproj
+    ├── MockTests.cs                 ← 5 тестів (верифікація рефакторингу)
+    └── xunit.runner.json</pre>
+
+  <h2>3.2. Підключення аналізаторів</h2>
 
   <p>До файлу проєкту <code>ExpressionAnalyzer.csproj</code> додано два NuGet-пакети:</p>
 
-  <p class="listing-title no-indent">Лістинг 1. Підключення SonarAnalyzer та Microsoft.CodeAnalysis.Metrics</p>
+  <p class="listing-title no-indent">Лістинг 1. ExpressionAnalyzer.csproj — підключення аналізаторів</p>
   <pre>&lt;ItemGroup&gt;
   &lt;PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="4.14.0" /&gt;
   &lt;PackageReference Include="SonarAnalyzer.CSharp" Version="10.26.0.140279"&gt;
@@ -243,26 +244,22 @@ if (Math.Abs(divisor) &lt; 1e-10)
   &lt;/PackageReference&gt;
 &lt;/ItemGroup&gt;</pre>
 
-  <p>Атрибут <code>IncludeAssets: analyzers</code> реєструє SonarAnalyzer як Roslyn-аналізатор, що активується під час кожної компіляції. <code>PrivateAssets: all</code> запобігає транзитивному поширенню пакета на залежні проєкти.</p>
+  <p>Атрибут <code>IncludeAssets: analyzers</code> реєструє SonarAnalyzer як Roslyn-аналізатор, який активується при кожній компіляції. <code>PrivateAssets: all</code> запобігає поширенню пакета на залежні проєкти (тестовий проєкт перевіряти не потрібно).</p>
 
-  <p>Збір метрик виконується командою:</p>
-  <pre>dotnet build ExpressionAnalyzer.csproj -t:Metrics</pre>
+  <h2>3.3. Виявлене попередження S1244</h2>
 
-  <p>Результат зберігається у файлі <code>ExpressionAnalyzer.Metrics.xml</code>.</p>
+  <p>Після підключення SonarAnalyzer і виконання <code>dotnet build</code> компілятор вивів одне попередження:</p>
 
-  <h2>3.2. Виявлені попередження SonarAnalyzer</h2>
+  <div class="build-output">PS ...ProgramProject4> dotnet build
 
-  <p>Після підключення SonarAnalyzer та виконання <code>dotnet build</code> виявлено одне попередження:</p>
+<span class="yellow">Evaluator.cs(22,20): warning S1244: Do not check floating point equality with
+exact values, use a range instead [ExpressionAnalyzer]</span>
 
-  <div class="sonar-output">Build succeeded.
+Build succeeded.
+    <span class="yellow">1 Warning(s)</span>
+    0 Error(s)</div>
 
-<span class="warn-color">Evaluator.cs(22,20): warning S1244: Do not check floating point equality with exact
-values, use a range instead [ExpressionAnalyzer]</span>
-
-1 Warning(s)
-0 Error(s)</div>
-
-  <p class="figure-caption">Рисунок 1 — Попередження SonarAnalyzer S1244 при компіляції</p>
+  <p class="figure-caption">Рисунок 1 — Попередження S1244 при першій компіляції</p>
 
   <table>
     <thead>
@@ -279,25 +276,25 @@ values, use a range instead [ExpressionAnalyzer]</span>
     </tbody>
   </table>
 
-  <p>Проблемний код знаходився у методі <code>Evaluator.Evaluate</code> у гілці ділення:</p>
+  <p>Проблемний код — перевірка дільника у гілці ділення:</p>
 
-  <p class="listing-title no-indent">Лістинг 2. Код до виправлення — точне порівняння double</p>
+  <p class="listing-title no-indent">Лістинг 2. Evaluator.cs — фрагмент до виправлення</p>
   <pre>case NodeType.Divide:
     double divisor = Evaluate(node.Right!);
-    if (divisor == 0)                         // S1244: небезпечне порівняння
+    if (divisor == 0)                         // S1244 — рядок 22
         throw new DivideByZeroException("Division by zero");
     return Evaluate(node.Left!) / divisor;</pre>
 
-  <h2>3.3. Метрики до рефакторингу</h2>
+  <h2>3.4. Збір метрик до рефакторингу</h2>
 
-  <p>Збір метрик командою <code>dotnet build ExpressionAnalyzer.csproj -t:Metrics</code> надав наступні результати:</p>
+  <p>Метрики зібрано командою <code>dotnet build ExpressionAnalyzer.csproj -t:Metrics</code>. Результат збережено у файлі <code>ExpressionAnalyzer.Metrics.xml</code>.</p>
 
   <table>
     <thead>
       <tr>
         <th>Клас / Метод</th>
-        <th class="center">Cyclomatic Complexity</th>
-        <th class="center">Maintainability Index</th>
+        <th class="center">MI</th>
+        <th class="center">CC</th>
         <th class="center">Source Lines</th>
         <th class="center">Статус</th>
       </tr>
@@ -305,43 +302,50 @@ values, use a range instead [ExpressionAnalyzer]</span>
     <tbody>
       <tr>
         <td><strong>Assembly (загалом)</strong></td>
-        <td class="center"><strong>56</strong></td>
-        <td class="center"><strong>90</strong></td>
+        <td class="center">90</td>
+        <td class="center">56</td>
         <td class="center">252</td>
         <td class="center"><span class="ok">✓</span></td>
       </tr>
       <tr>
-        <td><code>Lexer.Tokenize</code></td>
-        <td class="center">8</td>
+        <td><code>Lexer</code> (клас)</td>
         <td class="center"><span class="warn">54 ⚠</span></td>
+        <td class="center">8</td>
         <td class="center">38</td>
         <td class="center"><span class="warn">MI нижче норми</span></td>
       </tr>
       <tr>
         <td><code>Parser</code> (клас)</td>
-        <td class="center">18</td>
         <td class="center">72</td>
+        <td class="center">18</td>
         <td class="center">79</td>
         <td class="center"><span class="ok">✓</span></td>
       </tr>
       <tr>
         <td><code>Parser.ParsePrimary</code></td>
-        <td class="center">4</td>
         <td class="center">61</td>
+        <td class="center">4</td>
         <td class="center">19</td>
         <td class="center"><span class="ok">✓</span></td>
       </tr>
       <tr>
         <td><code>Evaluator.Evaluate</code></td>
-        <td class="center">9</td>
         <td class="center">81</td>
+        <td class="center">9</td>
         <td class="center">23</td>
         <td class="center"><span class="warn">S1244 ⚠</span></td>
       </tr>
       <tr>
+        <td><code>FileExpressionSource</code></td>
+        <td class="center">90</td>
+        <td class="center">3</td>
+        <td class="center">16</td>
+        <td class="center"><span class="ok">✓</span></td>
+      </tr>
+      <tr>
         <td><code>AstNode</code></td>
-        <td class="center">7</td>
         <td class="center">92</td>
+        <td class="center">7</td>
         <td class="center">26</td>
         <td class="center"><span class="ok">✓</span></td>
       </tr>
@@ -350,36 +354,41 @@ values, use a range instead [ExpressionAnalyzer]</span>
 
   <p class="figure-caption">Таблиця 1 — Метрики коду до рефакторингу</p>
 
-  <p>Виявлено дві проблеми:</p>
+  <p>Виявлено дві проблеми, що потребують виправлення:</p>
   <ul>
-    <li><strong>S1244</strong> у <code>Evaluator.Evaluate</code> (рядок 22) — точне порівняння <code>double</code>;</li>
-    <li><strong>MI = 54</strong> у <code>Lexer.Tokenize</code> — нижче норми (≥65), що свідчить про надмірну складність методу.</li>
+    <li><strong>S1244</strong> у <code>Evaluator.Evaluate</code> (рядок 22) — точне порівняння значення типу <code>double</code>;</li>
+    <li><strong>MI = 54</strong> у <code>Lexer</code> — нижче норми (≥ 65), монолітний метод з вкладеними циклами і switch.</li>
   </ul>
 
-  <h2>3.4. Рефакторинг: виправлення S1244</h2>
+</div>
 
-  <p>Точне порівняння <code>divisor == 0</code> замінено на epsilon-порівняння через функцію <code>Math.Abs</code>. Значення epsilon <code>1e-10</code> обрано як достатньо малий допуск для задач арифметики з подвійною точністю.</p>
+<!-- ======= РЕФАКТОРИНГ ======= -->
+<div class="page">
 
-  <p class="listing-title no-indent">Лістинг 3. Evaluator.cs — до і після виправлення</p>
-  <pre>// ДО: точне порівняння (S1244)
+  <h2>3.5. Рефакторинг Evaluator — виправлення S1244</h2>
+
+  <p>Точне порівняння <code>divisor == 0</code> замінено на epsilon-порівняння через функцію <code>Math.Abs</code>. Значення допуску <code>1e-10</code> обрано як достатньо мале для задач арифметики з подвійною точністю (тип <code>double</code> має ~15–16 значущих цифр).</p>
+
+  <p class="listing-title no-indent">Лістинг 3. Evaluator.cs — до і після виправлення S1244</p>
+  <pre>// ДО: точне порівняння — S1244
 case NodeType.Divide:
     double divisor = Evaluate(node.Right!);
     if (divisor == 0)
         throw new DivideByZeroException("Division by zero");
     return Evaluate(node.Left!) / divisor;
 
-// ПІСЛЯ: epsilon-порівняння (S1244 усунуто)
+// ПІСЛЯ: epsilon-порівняння — S1244 усунуто
 case NodeType.Divide:
     double divisor = Evaluate(node.Right!);
     if (Math.Abs(divisor) &lt; 1e-10)
         throw new DivideByZeroException("Division by zero");
     return Evaluate(node.Left!) / divisor;</pre>
 
-  <p>Після цієї зміни повторна компіляція <code>dotnet build</code> не виводить жодних Sonar-попереджень.</p>
+  <p>Після цієї зміни повторна компіляція не виводить жодних Sonar-попереджень. MI методу залишився незмінним — 81, CC = 9 (обидва в нормі).</p>
 
-  <h2>3.5. Рефакторинг: покращення Lexer (MI 54 → 70)</h2>
+  <h2>3.6. Рефакторинг Lexer — підвищення MI з 54 до 70</h2>
 
-  <p>Метод <code>Lexer.Tokenize</code> мав MI = 54 через монолітну структуру: один великий метод з вкладеним циклом, умовами і switch-виразом. Відповідно до принципу єдиної відповідальності (SRP), метод розбито на три приватні допоміжні методи.</p>
+  <p>Причина низького MI у <code>Lexer</code> — монолітний метод <code>Tokenize</code>: один метод із 38 рядків містив вкладений цикл, дві умовні гілки та switch-вираз. Відповідно до принципу єдиної відповідальності (SRP), метод декомпозовано на три приватні допоміжні методи.</p>
 
   <p class="listing-title no-indent">Лістинг 4. Lexer.cs — до рефакторингу (монолітний метод)</p>
   <pre>public IReadOnlyList&lt;Token&gt; Tokenize(string expression)
@@ -390,7 +399,7 @@ case NodeType.Divide:
     {
         char c = expression[i];
         if (char.IsWhiteSpace(c)) { i++; continue; }
-        if (char.IsDigit(c) || c == '.')
+        if (char.IsDigit(c) || c == '.')      // логіка числа вбудована прямо тут
         {
             int start = i;
             while (i &lt; expression.Length
@@ -401,7 +410,7 @@ case NodeType.Divide:
             tokens.Add(new Token(TokenType.Number, val));
             continue;
         }
-        var type = c switch
+        var type = c switch   // і маппінг операторів тут же
         {
             '+' =&gt; TokenType.Plus,
             '-' =&gt; TokenType.Minus,
@@ -418,8 +427,9 @@ case NodeType.Divide:
     return tokens;
 }</pre>
 
-  <p class="listing-title no-indent">Лістинг 5. Lexer.cs — після рефакторингу (декомпозиція на 3 методи)</p>
-  <pre>public IReadOnlyList&lt;Token&gt; Tokenize(string expression)
+  <p class="listing-title no-indent">Лістинг 5. Lexer.cs — після рефакторингу (декомпозиція)</p>
+  <pre>// Головний метод — тільки загальний цикл, деталі винесені
+public IReadOnlyList&lt;Token&gt; Tokenize(string expression)
 {
     var tokens = new List&lt;Token&gt;();
     int i = 0;
@@ -435,8 +445,10 @@ case NodeType.Divide:
     return tokens;
 }
 
+// Предикат: чи починається число з цього символу?
 private static bool IsNumberStart(char c) => char.IsDigit(c) || c == '.';
 
+// Зчитування числового токена з просуванням позиції
 private static Token ReadNumber(string expression, ref int i)
 {
     int start = i;
@@ -446,6 +458,7 @@ private static Token ReadNumber(string expression, ref int i)
     return new Token(TokenType.Number, val);
 }
 
+// Відображення символу оператора на тип токена
 private static TokenType MapCharToTokenType(char c) =&gt; c switch
 {
     '+' =&gt; TokenType.Plus,
@@ -457,14 +470,14 @@ private static TokenType MapCharToTokenType(char c) =&gt; c switch
     _   =&gt; throw new InvalidOperationException($"Unknown character '{c}'")
 };</pre>
 
-  <p>Виділено три приватні методи:</p>
+  <p>Виділено три приватних методи, кожен з яких виконує рівно одну задачу:</p>
   <ul>
-    <li><strong><code>IsNumberStart(char)</code></strong> — предикат початку числового токена;</li>
-    <li><strong><code>ReadNumber(string, ref int)</code></strong> — зчитує і повертає числовий токен, просуваючи позицію <code>i</code>;</li>
-    <li><strong><code>MapCharToTokenType(char)</code></strong> — відображає символ оператора на тип токена.</li>
+    <li><strong><code>IsNumberStart(char)</code></strong> — предикат початку числового токена (MI = 92, CC = 2);</li>
+    <li><strong><code>ReadNumber(string, ref int)</code></strong> — зчитує числовий токен, просуває позицію (MI = 74, CC = 3);</li>
+    <li><strong><code>MapCharToTokenType(char)</code></strong> — відображає символ оператора на тип токена (MI = 87, CC = 1).</li>
   </ul>
 
-  <p>Кожен метод виконує одну задачу — відповідно до принципу SRP. Головний метод <code>Tokenize</code> скоротився з 28 рядків до 10 і тепер описує лише загальну логіку циклу.</p>
+  <p>Головний метод <code>Tokenize</code> скоротився з 28 до 10 рядків і тепер описує виключно загальний алгоритм обходу символів.</p>
 
 </div>
 
@@ -473,14 +486,20 @@ private static TokenType MapCharToTokenType(char c) =&gt; c switch
 
   <h1>4. Результати після рефакторингу</h1>
 
-  <p>Після проведеного рефакторингу виконано повторний збір метрик та перебудову проєкту:</p>
+  <p>Після рефакторингу виконано повторну компіляцію та збір метрик. Результат компіляції:</p>
 
-  <div class="sonar-output"><span class="ok-color">Build succeeded.</span>
+  <div class="build-output">PS ...ProgramProject4> dotnet build
 
-0 Warning(s)
-0 Error(s)</div>
+  ExpressionAnalyzer <span class="green">succeeded</span> (3,7s) → ExpressionAnalyzer\bin\Debug\net9.0\ExpressionAnalyzer.dll
+  ExpressionAnalyzer.Tests <span class="green">succeeded</span> (0,8s) → ExpressionAnalyzer.Tests\bin\Debug\net9.0\ExpressionAnalyzer.Tests.dll
+
+Build succeeded.
+    <span class="green">0 Warning(s)</span>
+    0 Error(s)</div>
 
   <p class="figure-caption">Рисунок 2 — Результат компіляції після рефакторингу: 0 попереджень</p>
+
+  <p>Метрики після рефакторингу (з файлу <code>ExpressionAnalyzer.Metrics.xml</code>):</p>
 
   <table>
     <thead>
@@ -490,6 +509,7 @@ private static TokenType MapCharToTokenType(char c) =&gt; c switch
         <th class="center">MI після</th>
         <th class="center">CC до</th>
         <th class="center">CC після</th>
+        <th class="center">Source Lines</th>
       </tr>
     </thead>
     <tbody>
@@ -498,14 +518,48 @@ private static TokenType MapCharToTokenType(char c) =&gt; c switch
         <td class="center">90</td>
         <td class="center"><strong>91</strong></td>
         <td class="center">56</td>
-        <td class="center">58 *</td>
+        <td class="center">58</td>
+        <td class="center">260</td>
       </tr>
       <tr>
         <td><code>Lexer</code> (клас)</td>
         <td class="center"><span class="warn">54 ⚠</span></td>
         <td class="center"><span class="ok">70 ✓</span></td>
         <td class="center">8</td>
-        <td class="center">10 *</td>
+        <td class="center">10</td>
+        <td class="center">49</td>
+      </tr>
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;<code>Lexer.Tokenize</code></td>
+        <td class="center"><span class="warn">54</span></td>
+        <td class="center">60</td>
+        <td class="center">8</td>
+        <td class="center"><span class="ok">4</span></td>
+        <td class="center">24</td>
+      </tr>
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;<code>Lexer.IsNumberStart</code></td>
+        <td class="center">—</td>
+        <td class="center"><span class="ok">92</span></td>
+        <td class="center">—</td>
+        <td class="center">2</td>
+        <td class="center">1</td>
+      </tr>
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;<code>Lexer.ReadNumber</code></td>
+        <td class="center">—</td>
+        <td class="center"><span class="ok">74</span></td>
+        <td class="center">—</td>
+        <td class="center">3</td>
+        <td class="center">8</td>
+      </tr>
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;<code>Lexer.MapCharToTokenType</code></td>
+        <td class="center">—</td>
+        <td class="center"><span class="ok">87</span></td>
+        <td class="center">—</td>
+        <td class="center">1</td>
+        <td class="center">10</td>
       </tr>
       <tr>
         <td><code>Evaluator.Evaluate</code></td>
@@ -513,57 +567,72 @@ private static TokenType MapCharToTokenType(char c) =&gt; c switch
         <td class="center">81</td>
         <td class="center">9</td>
         <td class="center">9</td>
+        <td class="center">23</td>
+      </tr>
+      <tr>
+        <td><code>Parser</code> (клас)</td>
+        <td class="center">72</td>
+        <td class="center">72</td>
+        <td class="center">18</td>
+        <td class="center">18</td>
+        <td class="center">79</td>
+      </tr>
+      <tr>
+        <td><code>AstNode</code></td>
+        <td class="center">92</td>
+        <td class="center">92</td>
+        <td class="center">7</td>
+        <td class="center">7</td>
+        <td class="center">26</td>
       </tr>
     </tbody>
   </table>
 
-  <p class="figure-caption">Таблиця 2 — Порівняння метрик до та після рефакторингу</p>
+  <p class="figure-caption">Таблиця 2 — Метрики коду після рефакторингу (з ExpressionAnalyzer.Metrics.xml)</p>
 
-  <p>* CC зріс через додавання нових методів (кожен новий метод додає +1 до базового CC), що є очікуваним та нормальним результатом декомпозиції.</p>
+  <p>CC класу <code>Lexer</code> зріс з 8 до 10 через додавання нових методів (кожен новий метод +1 до базового CC). Це очікуваний та нормальний результат декомпозиції — CC кожного окремого методу значно нижчий, ніж CC старого монолітного методу.</p>
 
-  <p>Підсумкова таблиця результатів:</p>
+  <p>Результат виконання тестів підтверджує, що рефакторинг не порушив коректність роботи бібліотеки:</p>
+
+  <div class="build-output">PS ...ProgramProject4> dotnet test
+
+  ExpressionAnalyzer <span class="green">succeeded</span> (3,7s)
+  ExpressionAnalyzer.Tests <span class="green">succeeded</span> (0,8s)
+
+[xUnit.net 00:00:00.55]   Discovered:  ExpressionAnalyzer.Tests
+[xUnit.net 00:00:00.71]   Finished:    ExpressionAnalyzer.Tests
+
+Test summary: total: 5; failed: 0; <span class="green">succeeded: 5</span>; skipped: 0; duration: 2,0s
+Build <span class="green">succeeded</span> in 7,9s</div>
+
+  <p class="figure-caption">Рисунок 3 — Результат виконання 5 тестів після рефакторингу</p>
+
+  <p>Зведена таблиця результатів:</p>
 
   <table>
     <thead>
       <tr><th>Показник</th><th class="center">До</th><th class="center">Після</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Sonar warnings</td>
-        <td class="center"><span class="warn">1 (S1244)</span></td>
-        <td class="center"><span class="ok">0 ✓</span></td>
-      </tr>
-      <tr>
-        <td>Lexer MI</td>
-        <td class="center"><span class="warn">54 ⚠</span></td>
-        <td class="center"><span class="ok">70 ✓</span></td>
-      </tr>
-      <tr>
-        <td>Assembly MI</td>
-        <td class="center">90</td>
-        <td class="center">91</td>
-      </tr>
-      <tr>
-        <td>Тести (5/5)</td>
-        <td class="center">5/5</td>
-        <td class="center">5/5</td>
-      </tr>
+      <tr><td>Sonar warnings</td><td class="center"><span class="warn">1 (S1244)</span></td><td class="center"><span class="ok">0 ✓</span></td></tr>
+      <tr><td>Lexer MI</td><td class="center"><span class="warn">54 ⚠</span></td><td class="center"><span class="ok">70 ✓</span></td></tr>
+      <tr><td>Lexer CC (метод Tokenize)</td><td class="center">8</td><td class="center"><span class="ok">4 ↓</span></td></tr>
+      <tr><td>Assembly MI</td><td class="center">90</td><td class="center">91</td></tr>
+      <tr><td>Тести (5/5)</td><td class="center">5/5</td><td class="center"><span class="ok">5/5 ✓</span></td></tr>
     </tbody>
   </table>
 
   <p class="figure-caption">Таблиця 3 — Зведені результати</p>
 
-  <p>Метрика MI класу <code>Lexer</code> піднялась з 54 до 70, що відповідає нормі (≥65). Попередження S1244 усунуто. Загальний MI assembly покращився з 90 до 91. Усі 5 тестів залишились успішними — рефакторинг не порушив коректність роботи бібліотеки.</p>
-
   <h1>5. Висновок</h1>
 
-  <p>У ході виконання програмного проєкту 4 проведено статичний аналіз коду бібліотеки <code>ExpressionAnalyzer</code> з використанням Roslyn-аналізатора SonarAnalyzer.CSharp 10.26 та зібрано метрики якості засобами Microsoft.CodeAnalysis.Metrics.</p>
+  <p>У ході виконання програмного проєкту 4 проведено статичний аналіз коду бібліотеки <code>ExpressionAnalyzer</code> з використанням Roslyn-аналізатора SonarAnalyzer.CSharp 10.26.0 та зібрано метрики якості засобами Microsoft.CodeAnalysis.Metrics 4.14.0.</p>
 
-  <p>Аналізатор виявив одне порушення правила <strong>S1244</strong> — точне порівняння значення типу <code>double</code> на рівність нулю у методі <code>Evaluator.Evaluate</code>. Це потенційний дефект надійності, що може призвести до пропуску ділення на нуль через похибку округлення IEEE 754. Порушення виправлено заміною <code>divisor == 0</code> на epsilon-порівняння <code>Math.Abs(divisor) &lt; 1e-10</code>.</p>
+  <p>Аналізатор виявив порушення правила <strong>S1244</strong> — точне порівняння значення типу <code>double</code> у методі <code>Evaluator.Evaluate</code>. Це потенційний дефект надійності категорії Major: через похибку округлення IEEE 754 перевірка <code>divisor == 0</code> може не спрацювати для «майже нульового» дільника. Виправлення полягало у заміні на epsilon-порівняння <code>Math.Abs(divisor) &lt; 1e-10</code>.</p>
 
-  <p>Метрики виявили низьке значення Maintainability Index (MI = 54) для методу <code>Lexer.Tokenize</code> (норма ≥65), зумовлене монолітною структурою методу. Проведено рефакторинг: метод декомпозовано на три приватні допоміжні методи (<code>IsNumberStart</code>, <code>ReadNumber</code>, <code>MapCharToTokenType</code>), кожен з яких відповідає за одну задачу. Після рефакторингу MI класу <code>Lexer</code> зріс до 70, що відповідає нормі.</p>
+  <p>Збір метрик виявив низький Maintainability Index класу <code>Lexer</code> — MI = 54 (норма ≥ 65). Причина — монолітний метод <code>Tokenize</code> з вкладеними структурами управління. Рефакторинг у відповідності до принципу єдиної відповідальності (SRP) — декомпозиція на методи <code>IsNumberStart</code>, <code>ReadNumber</code> та <code>MapCharToTokenType</code> — підняв MI класу до <strong>70</strong>. Додатково, CC методу <code>Tokenize</code> знизився з 8 до 4, що поліпшує його тестуваність.</p>
 
-  <p>Статичний аналіз довів свою ефективність як засіб раннього виявлення дефектів: S1244 не був би знайдений звичайними тестами, оскільки в тестовому середовищі дільник може бути точно рівним нулю. У реальному застосуванні, де дільник є результатом складних обчислень, похибка округлення може призвести до непомічення ділення на нуль.</p>
+  <p>Після рефакторингу всі 5 тестів залишились успішними — коректність бібліотеки підтверджена. Статичний аналіз довів свою ефективність як засіб виявлення прихованих дефектів та проблем якості, що не виявляються звичайним тестуванням.</p>
 
 </div>
 
