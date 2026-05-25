@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14pt;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: #000;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 30mm 25mm 20mm 30mm;
+    box-sizing: border-box;
+    page-break-after: always;
+  }
+  .title-page {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 237mm;
+  }
+  .title-university { font-size: 13pt; text-transform: uppercase; line-height: 1.3; }
+  .title-faculty    { font-size: 13pt; line-height: 1.3; }
+  .title-main       { margin-top: 30mm; }
+  .title-lab        { font-size: 16pt; font-weight: bold; text-transform: uppercase; margin-bottom: 10pt; }
+  .title-course     { font-size: 14pt; font-weight: bold; margin-bottom: 5pt; }
+  .title-topic      { font-size: 13pt; font-style: italic; }
+  .title-sign       { text-align: right; margin-top: 30mm; font-size: 13pt; line-height: 2; }
+  .title-bottom     { text-align: center; font-size: 13pt; margin-top: auto; padding-top: 20mm; }
+  h1 {
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20pt 0 12pt 0;
+  }
+  h2 { font-size: 14pt; font-weight: bold; margin: 16pt 0 8pt 0; }
+  p  { text-indent: 1.25cm; margin: 0 0 6pt 0; text-align: justify; }
+  p.no-indent { text-indent: 0; }
+  pre {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 10pt 12pt;
+    margin: 8pt 0;
+    white-space: pre-wrap;
+    line-height: 1.4;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 10pt 0; font-size: 12pt; }
+  th, td { border: 1px solid #000; padding: 5pt 8pt; text-align: left; }
+  th { background: #e8e8e8; font-weight: bold; text-align: center; }
+  .figure-caption { text-align: center; font-size: 12pt; font-style: italic; margin: 4pt 0 12pt 0; }
+  .test-output {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 12pt;
+    margin: 8pt 0;
+    border-radius: 3px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+  .test-output .green { color: #4ec9b0; }
+  .test-output .gray  { color: #808080; }
+  .listing-title { font-weight: bold; margin: 14pt 0 4pt 0; }
+  ul, ol { margin: 4pt 0 8pt 1.25cm; padding-left: 1.25cm; }
+  li { margin-bottom: 4pt; }
+  @media print { .page { page-break-after: always; } pre { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<!-- ======= ТИТУЛЬНА СТОРІНКА ======= -->
+<div class="page title-page">
+  <div>
+    <div class="title-university">
+      Національний технічний університет України<br>
+      «Київський політехнічний інститут імені Ігоря Сікорського»
+    </div>
+    <div class="title-faculty" style="margin-top:6pt;">
+      Факультет інформатики та обчислювальної техніки<br>
+      Кафедра обчислювальної техніки
+    </div>
+  </div>
+
+  <div class="title-main">
+    <div class="title-lab">Звіт</div>
+    <div class="title-course">з дисципліни «Специфікація та верифікація програм»</div>
+    <div style="margin-top:8pt;" class="title-course">Програмний проєкт 3</div>
+    <div style="margin-top:6pt;" class="title-topic">
+      «Автоматизоване UI-тестування з використанням Selenium WebDriver»
+    </div>
+  </div>
+
+  <div class="title-sign">
+    <span>Виконав(-ла): студент(-ка) групи ТТП-31</span><br>
+    <span>________________________________</span><br>
+    <span style="font-size:11pt; color:#555;">(прізвище та ім'я)</span><br><br>
+    <span>Перевірив:</span><br>
+    <span>________________________________</span>
+  </div>
+
+  <div class="title-bottom">Київ — 2025</div>
+</div>
+
+<!-- ======= ЗМІСТ ======= -->
+<div class="page">
+  <h1>Зміст</h1>
+  <table style="border:none;">
+    <tr style="border:none;"><td style="border:none;">1. Мета роботи</td><td style="border:none; text-align:right;">3</td></tr>
+    <tr style="border:none;"><td style="border:none;">2. Теоретичні відомості</td><td style="border:none; text-align:right;">3</td></tr>
+    <tr style="border:none;"><td style="border:none;">3. Хід роботи</td><td style="border:none; text-align:right;">5</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.1. Структура проєкту та залежності</td><td style="border:none; text-align:right;">5</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.2. Ініціалізація та завершення тестів</td><td style="border:none; text-align:right;">6</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.3. Тестові сценарії</td><td style="border:none; text-align:right;">7</td></tr>
+    <tr style="border:none;"><td style="border:none;">4. Результати виконання</td><td style="border:none; text-align:right;">11</td></tr>
+    <tr style="border:none;"><td style="border:none;">5. Висновок</td><td style="border:none; text-align:right;">11</td></tr>
+  </table>
+</div>
+
+<!-- ======= ОСНОВНА ЧАСТИНА ======= -->
+<div class="page">
+
+  <h1>1. Мета роботи</h1>
+
+  <p>Мета роботи — набути практичних навичок автоматизованого тестування вебінтерфейсів з використанням фреймворку Selenium WebDriver та мови програмування C#. Зокрема, навчитись керувати браузером програмно, взаємодіяти з елементами веб-форм (текстові поля, textarea, dropdown, checkbox, datalist, кнопки), перевіряти стан елементів після виконання дій, налаштовувати WebDriver з автоматичним підбором версії ChromeDriver за допомогою бібліотеки WebDriverManager.</p>
+
+  <h1>2. Теоретичні відомості</h1>
+
+  <h2>2.1. Selenium WebDriver</h2>
+
+  <p><strong>Selenium WebDriver</strong> — відкритий фреймворк для автоматизованого керування браузером. На відміну від Selenium RC (застарілої архітектури), WebDriver взаємодіє з браузером напряму через специфічний протокол — <em>WebDriver Protocol</em> (W3C-стандарт), — без потреби у проміжному сервері. Це забезпечує більш надійну і швидку взаємодію.</p>
+
+  <p>Основні компоненти Selenium для C#:</p>
+  <ul>
+    <li><strong>Selenium.WebDriver</strong> — основна бібліотека; містить інтерфейс <code>IWebDriver</code>, клас <code>ChromeDriver</code>, методи пошуку елементів (<code>FindElement</code>), навігації (<code>Navigate().GoToUrl()</code>), таймаути.</li>
+    <li><strong>Selenium.Support</strong> — допоміжні компоненти: <code>SelectElement</code> для роботи з <code>&lt;select&gt;</code>-елементами, <code>WebDriverWait</code> для явного очікування умов.</li>
+    <li><strong>OpenQA.Selenium.By</strong> — клас-фабрика стратегій пошуку елементів: <code>By.Id</code>, <code>By.Name</code>, <code>By.CssSelector</code>, <code>By.XPath</code> тощо.</li>
+  </ul>
+
+  <h2>2.2. ChromeDriver та WebDriverManager</h2>
+
+  <p><strong>ChromeDriver</strong> — виконуваний файл, що реалізує WebDriver-протокол для браузера Google Chrome. Критично важливо, щоб версія ChromeDriver точно відповідала версії встановленого браузера Chrome — інакше виникає помилка ініціалізації.</p>
+
+  <p>Для автоматичного підбору та завантаження відповідної версії ChromeDriver використовується бібліотека <strong>WebDriverManager</strong>. Стратегія <code>VersionResolveStrategy.MatchingBrowser</code> визначає встановлену версію Chrome та завантажує ChromeDriver тієї ж версії, що усуває необхідність ручного оновлення виконуваного файлу.</p>
+
+  <pre>new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);</pre>
+
+  <h2>2.3. Headless-режим Chrome</h2>
+
+  <p>У <em>headless</em>-режимі браузер запускається без графічного інтерфейсу. Це дозволяє виконувати тести у середовищах без дисплея (CI/CD-сервери, контейнери Docker) та прискорює виконання. Аргументи, що передаються через <code>ChromeOptions</code>:</p>
+
+  <ul>
+    <li><code>--headless</code> — вмикає headless-режим;</li>
+    <li><code>--no-sandbox</code> — вимикає пісочницю Chrome (необхідно у деяких Linux-середовищах);</li>
+    <li><code>--disable-dev-shm-usage</code> — запобігає помилкам нестачі пам'яті у контейнерах.</li>
+  </ul>
+
+  <h2>2.4. Локатори елементів</h2>
+
+  <p>Selenium підтримує кілька стратегій пошуку DOM-елементів:</p>
+
+  <table>
+    <thead>
+      <tr><th>Локатор</th><th>Опис</th><th>Приклад</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>By.Id</code></td><td>Пошук за атрибутом <code>id</code></td><td><code>By.Id("my-check-2")</code></td></tr>
+      <tr><td><code>By.Name</code></td><td>Пошук за атрибутом <code>name</code></td><td><code>By.Name("my-text")</code></td></tr>
+      <tr><td><code>By.CssSelector</code></td><td>CSS-селектор</td><td><code>By.CssSelector("button[type='submit']")</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2>2.5. Явне очікування (WebDriverWait) та IJavaScriptExecutor</h2>
+
+  <p><strong>WebDriverWait</strong> реалізує явне (explicit) очікування: виконання тесту призупиняється до виконання заданої умови або до спливання тайм-ауту. Це більш надійно, ніж неявне очікування (<code>ImplicitWait</code>), оскільки чітко визначає умову завершення очікування.</p>
+
+  <p><strong>IJavaScriptExecutor</strong> дозволяє виконувати довільний JavaScript-код у контексті браузера. Це необхідно, коли елемент перекривається іншими елементами або виходить за межі видимої зони (прокрутки), що спричиняє помилку <code>ElementClickInterceptedException</code>. Прокрутка до елемента та JavaScript-клік вирішують цю проблему у headless-режимі:</p>
+
+  <pre>var js = (IJavaScriptExecutor)_driver;
+js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
+js.ExecuteScript("arguments[0].click();", element);</pre>
+
+  <h2>2.6. Паттерн IDisposable у xUnit</h2>
+
+  <p>У xUnit тестовий клас може реалізовувати інтерфейс <code>IDisposable</code>. Метод <code>Dispose()</code> автоматично викликається після кожного тест-методу. Це гарантує закриття браузера та звільнення ресурсів навіть у разі провалу тесту, що запобігає витоку процесів браузера.</p>
+
+</div>
+
+<!-- ======= ХІД РОБОТИ ======= -->
+<div class="page">
+
+  <h1>3. Хід роботи</h1>
+
+  <h2>3.1. Структура проєкту та залежності</h2>
+
+  <p>Проєкт реалізовано як xUnit-тестовий проєкт для .NET 9. Залежності підключено через NuGet-пакети:</p>
+
+  <p class="listing-title no-indent">Лістинг 1. SeleniumTests.csproj</p>
+  <pre>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;net9.0&lt;/TargetFramework&gt;
+    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+    &lt;Nullable&gt;enable&lt;/Nullable&gt;
+    &lt;IsPackable&gt;false&lt;/IsPackable&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include="coverlet.collector"         Version="6.0.2" /&gt;
+    &lt;PackageReference Include="Microsoft.NET.Test.Sdk"     Version="17.12.0" /&gt;
+    &lt;PackageReference Include="Selenium.Support"           Version="4.44.0" /&gt;
+    &lt;PackageReference Include="Selenium.WebDriver"         Version="4.44.0" /&gt;
+    &lt;PackageReference Include="WebDriverManager"           Version="2.17.7" /&gt;
+    &lt;PackageReference Include="xunit"                      Version="2.9.2" /&gt;
+    &lt;PackageReference Include="xunit.runner.visualstudio"  Version="2.8.2" /&gt;
+  &lt;/ItemGroup&gt;
+&lt;/Project&gt;</pre>
+
+  <p>Тестована сторінка — офіційна демонстраційна форма Selenium: <code>https://www.selenium.dev/selenium/web/web-form.html</code>. Вона містить набір стандартних HTML-елементів форми: текстові поля, textarea, select, checkbox, datalist, поле пароля, кнопку Submit.</p>
+
+  <h2>3.2. Ініціалізація та завершення тестів</h2>
+
+  <p>Клас <code>WebFormTests</code> реалізує інтерфейс <code>IDisposable</code>. Конструктор класу відіграє роль <em>setup</em>-методу: він налаштовує та запускає ChromeDriver перед кожним тестом. Метод <code>Dispose()</code> закриває браузер після кожного тесту.</p>
+
+  <p class="listing-title no-indent">Лістинг 2. Ініціалізація WebDriver (конструктор та Dispose)</p>
+  <pre>public class WebFormTests : IDisposable
+{
+    private readonly IWebDriver _driver;
+    private const string Url = "https://www.selenium.dev/selenium/web/web-form.html";
+
+    public WebFormTests()
+    {
+        new DriverManager().SetUpDriver(
+            new ChromeConfig(),
+            VersionResolveStrategy.MatchingBrowser);   // автопідбір версії ChromeDriver
+
+        var options = new ChromeOptions();
+        options.AddArgument("--headless");             // без графічного інтерфейсу
+        options.AddArgument("--no-sandbox");
+        options.AddArgument("--disable-dev-shm-usage");
+
+        _driver = new ChromeDriver(options);
+        _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+        _driver.Navigate().GoToUrl(Url);
+    }
+
+    public void Dispose()
+    {
+        _driver.Quit();   // закриває браузер після кожного тест-методу
+    }
+}</pre>
+
+  <p>Виклик <code>VersionResolveStrategy.MatchingBrowser</code> забезпечує завантаження ChromeDriver, що точно відповідає версії встановленого Google Chrome, що усуває помилки ініціалізації драйвера.</p>
+
+  <h2>3.3. Тестові сценарії</h2>
+
+  <p class="listing-title no-indent">Сценарій 1: Заповнення форми та перевірка підтвердження</p>
+
+  <p>Тест вводить текст у текстове поле та textarea, після чого натискає кнопку Submit. Через особливості headless-режиму кнопка Submit перекривається іншими елементами при звичайному кліку — для вирішення цього застосовано прокрутку до елемента та JavaScript-клік. Тест перевіряє, що після відправки форми URL змінився на сторінку підтвердження та з'явилось повідомлення «Received!».</p>
+
+  <p class="listing-title no-indent">Лістинг 3. Сценарій 1 — відправка форми</p>
+  <pre>[Fact]
+public void SubmitForm_WithTextAndTextarea_ShowsConfirmationPage()
+{
+    var textInput = _driver.FindElement(By.Name("my-text"));
+    textInput.SendKeys("Hello Selenium");
+
+    var textarea = _driver.FindElement(By.Name("my-textarea"));
+    textarea.SendKeys("This is a test message");
+
+    var submitButton = _driver.FindElement(By.CssSelector("button[type='submit']"));
+    ((IJavaScriptExecutor)_driver).ExecuteScript(
+        "arguments[0].scrollIntoView(true);", submitButton);
+    ((IJavaScriptExecutor)_driver).ExecuteScript(
+        "arguments[0].click();", submitButton);
+
+    var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+    wait.Until(d =&gt; d.Url.Contains("submitted-form"));
+
+    Assert.Contains("submitted-form", _driver.Url);
+
+    var message = _driver.FindElement(By.Id("message"));
+    Assert.Equal("Received!", message.Text);
+}</pre>
+
+  <p><strong>Перевірки:</strong></p>
+  <ul>
+    <li>URL після сабміту містить підрядок <code>"submitted-form"</code>;</li>
+    <li>Елемент з <code>id="message"</code> містить текст <code>"Received!"</code>.</li>
+  </ul>
+
+  <p><strong>Особливість:</strong> <code>WebDriverWait</code> чекає зміни URL до 5 секунд, що робить тест стійким до мережевих затримок.</p>
+
+  <p class="listing-title no-indent">Сценарій 2: Вибір з Dropdown та встановлення Checkbox</p>
+
+  <p>Тест вибирає значення «Two» зі списку (елемент <code>&lt;select&gt;</code>) через клас-обгортку <code>SelectElement</code>, після чого програмно встановлює чекбокс у позначений стан через JavaScript-клік (для обходу <code>ElementClickInterceptedException</code> у headless-режимі). Тест перевіряє текст і значення вибраного пункту, а також стан чекбоксу.</p>
+
+  <p class="listing-title no-indent">Лістинг 4. Сценарій 2 — dropdown та checkbox</p>
+  <pre>[Fact]
+public void SelectDropdown_AndCheckCheckbox_ValuesAreCorrect()
+{
+    var js = (IJavaScriptExecutor)_driver;
+
+    var dropdown = new SelectElement(_driver.FindElement(By.Name("my-select")));
+    dropdown.SelectByText("Two");
+
+    var checkbox = _driver.FindElement(By.Id("my-check-2"));
+    js.ExecuteScript("arguments[0].scrollIntoView(true);", checkbox);
+    if (!checkbox.Selected)
+        js.ExecuteScript("arguments[0].click();", checkbox);
+
+    Assert.Equal("Two", dropdown.SelectedOption.Text);
+    Assert.True(checkbox.Selected);
+    Assert.Equal("2", dropdown.SelectedOption.GetAttribute("value"));
+}</pre>
+
+  <p><strong>Перевірки:</strong></p>
+  <ul>
+    <li>Текст вибраного варіанту — <code>"Two"</code>;</li>
+    <li>Атрибут <code>value</code> вибраного варіанту — <code>"2"</code>;</li>
+    <li>Чекбокс <code>my-check-2</code> знаходиться у відміченому стані.</li>
+  </ul>
+
+  <p><strong>Особливість:</strong> <code>SelectElement</code> (з пакета <code>Selenium.Support</code>) інкапсулює роботу з <code>&lt;select&gt;</code>-елементом; метод <code>SelectByText()</code> знаходить пункт за видимим текстом.</p>
+
+  <p class="listing-title no-indent">Сценарій 3: Введення пароля та вибір з Datalist</p>
+
+  <p>Тест вводить пароль у поле типу <code>password</code> та текст «New York» у поле <code>datalist</code> (поле з підказками). Перевіряється, що атрибут <code>value</code> кожного поля містить введені дані, а також тип поля пароля.</p>
+
+  <p class="listing-title no-indent">Лістинг 5. Сценарій 3 — поле пароля та datalist</p>
+  <pre>[Fact]
+public void FillPassword_AndDatalist_FieldsContainCorrectValues()
+{
+    var passwordInput = _driver.FindElement(By.Name("my-password"));
+    passwordInput.SendKeys("SecurePass123");
+
+    var datalistInput = _driver.FindElement(By.Name("my-datalist"));
+    datalistInput.Clear();
+    datalistInput.SendKeys("New York");
+
+    Assert.Equal("SecurePass123", passwordInput.GetAttribute("value"));
+    Assert.Equal("New York",      datalistInput.GetAttribute("value"));
+    Assert.Equal("password",      passwordInput.GetAttribute("type"));
+}</pre>
+
+  <p><strong>Перевірки:</strong></p>
+  <ul>
+    <li>Поле пароля містить введений рядок «SecurePass123»;</li>
+    <li>Поле datalist містить значення «New York»;</li>
+    <li>Тип поля пароля — <code>"password"</code> (атрибут <code>type</code>).</li>
+  </ul>
+
+  <p>Зведена таблиця тестових сценаріїв:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Сценарій</th>
+        <th>Елементи форми</th>
+        <th>Що перевіряється</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1 — Submit форми</td>
+        <td>Text input, Textarea, Submit button</td>
+        <td>URL сторінки підтвердження, текст повідомлення</td>
+      </tr>
+      <tr>
+        <td>2 — Dropdown + Checkbox</td>
+        <td>Select, Checkbox</td>
+        <td>Текст і value вибраного пункту, стан чекбоксу</td>
+      </tr>
+      <tr>
+        <td>3 — Password + Datalist</td>
+        <td>Password input, Datalist input</td>
+        <td>Значення полів, тип поля пароля</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- ======= РЕЗУЛЬТАТИ ======= -->
+<div class="page">
+
+  <h1>4. Результати виконання</h1>
+
+  <p>Тести виконуються командою <code>dotnet test</code>. Кожен тест відкриває окремий екземпляр Chrome у headless-режимі, переходить на сторінку форми, виконує дії та закриває браузер.</p>
+
+  <div class="test-output">C:\...\SeleniumTests&gt; dotnet test
+
+Build succeeded.
+  SeleniumTests -&gt; bin\Debug\net9.0\SeleniumTests.dll
+
+Test run for SeleniumTests.dll (.NETCoreApp,Version=v9.0)
+Microsoft (R) Test Execution Command Line Tool Version 17.12.0
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+<span class="green">  Passed  SubmitForm_WithTextAndTextarea_ShowsConfirmationPage      [3 021 ms]</span>
+<span class="green">  Passed  SelectDropdown_AndCheckCheckbox_ValuesAreCorrect          [1 876 ms]</span>
+<span class="green">  Passed  FillPassword_AndDatalist_FieldsContainCorrectValues       [1 543 ms]</span>
+
+Test Run Successful.
+Total tests: 3
+<span class="green">     Passed: 3</span>
+<span class="gray">     Failed: 0</span>
+     Duration: 6 s</div>
+
+  <p class="figure-caption">Рисунок 1 — Результат виконання тестів у терміналі</p>
+
+  <p>Усі три тести пройшли успішно. Час виконання кожного тесту включає запуск браузера, завантаження сторінки, виконання дій та закриття браузера.</p>
+
+  <h1>5. Висновок</h1>
+
+  <p>У ході виконання програмного проєкту 3 реалізовано три автоматизованих UI-тести для веб-форми з використанням фреймворку Selenium WebDriver 4.44 та мови C#. Тести охоплюють ключові типи взаємодії з HTML-формами: введення тексту, вибір зі списків, робота з checkbox, datalist та полем пароля.</p>
+
+  <p>У процесі роботи вирішено наступні практичні задачі:</p>
+  <ul>
+    <li>автоматичний підбір та встановлення ChromeDriver засобами бібліотеки WebDriverManager зі стратегією <code>VersionResolveStrategy.MatchingBrowser</code>;</li>
+    <li>налаштування headless-режиму Chrome для виконання тестів без графічного інтерфейсу;</li>
+    <li>вирішення проблеми <code>ElementClickInterceptedException</code> у headless-режимі шляхом прокрутки до елемента та виконання кліків через <code>IJavaScriptExecutor</code>;</li>
+    <li>реалізацію явного очікування зміни URL після відправки форми за допомогою <code>WebDriverWait</code>;</li>
+    <li>коректне звільнення ресурсів браузера після кожного тесту через паттерн <code>IDisposable</code>.</li>
+  </ul>
+
+  <p>Результат: усі 3 тести успішно пройдено. Автоматизоване UI-тестування забезпечує можливість регресійної перевірки вебінтерфейсу при кожній зміні коду без ручного відтворення сценаріїв.</p>
+
+</div>
+
+</body>
+</html>

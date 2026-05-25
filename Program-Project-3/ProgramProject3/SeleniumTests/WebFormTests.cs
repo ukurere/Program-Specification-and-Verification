@@ -31,8 +31,6 @@ namespace SeleniumTests
             _driver.Quit();
         }
 
-        // Сценарій 1: Заповнити текстове поле і textarea, натиснути Submit
-        // Перевірити що URL змінився і з'явилося повідомлення про успіх
         [Fact]
         public void SubmitForm_WithTextAndTextarea_ShowsConfirmationPage()
         {
@@ -55,8 +53,6 @@ namespace SeleniumTests
             Assert.Equal("Received!", message.Text);
         }
 
-        // Сценарій 2: Вибрати значення з Dropdown, поставити Checkbox
-        // Перевірити що вибране значення і стан чекбоксу збереглися
         [Fact]
         public void SelectDropdown_AndCheckCheckbox_ValuesAreCorrect()
         {
@@ -75,8 +71,6 @@ namespace SeleniumTests
             Assert.Equal("2", dropdown.SelectedOption.GetAttribute("value"));
         }
 
-        // Сценарій 3: Ввести пароль і вибрати значення з Datalist
-        // Перевірити що поля містять введені значення
         [Fact]
         public void FillPassword_AndDatalist_FieldsContainCorrectValues()
         {

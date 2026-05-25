@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="1.0">
+  <Targets>
+    <Target Name="ExpressionAnalyzer.csproj">
+      <Assembly Name="ExpressionAnalyzer, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="91" />
+          <Metric Name="CyclomaticComplexity" Value="58" />
+          <Metric Name="ClassCoupling" Value="18" />
+          <Metric Name="DepthOfInheritance" Value="1" />
+          <Metric Name="SourceLines" Value="260" />
+          <Metric Name="ExecutableLines" Value="72" />
+        </Metrics>
+        <Namespaces>
+          <Namespace Name="ExpressionAnalyzer">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="78" />
+              <Metric Name="CyclomaticComplexity" Value="40" />
+              <Metric Name="ClassCoupling" Value="18" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="182" />
+              <Metric Name="ExecutableLines" Value="61" />
+            </Metrics>
+            <Types>
+              <NamedType Name="Evaluator">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="81" />
+                  <Metric Name="CyclomaticComplexity" Value="9" />
+                  <Metric Name="ClassCoupling" Value="6" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="26" />
+                  <Metric Name="ExecutableLines" Value="1" />
+                </Metrics>
+                <Members>
+                  <Method Name="double Evaluator.Evaluate(AstNode node)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Evaluator.cs" Line="8">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="81" />
+                      <Metric Name="CyclomaticComplexity" Value="9" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="23" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="FileExpressionSource">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="90" />
+                  <Metric Name="CyclomaticComplexity" Value="3" />
+                  <Metric Name="ClassCoupling" Value="3" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="16" />
+                  <Metric Name="ExecutableLines" Value="3" />
+                </Metrics>
+                <Members>
+                  <Field Name="string FileExpressionSource._path" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\FileExpressionSource.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="FileExpressionSource.FileExpressionSource(string path)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\FileExpressionSource.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="96" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="string FileExpressionSource.ReadExpression()" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\FileExpressionSource.cs" Line="14">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="Lexer">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="70" />
+                  <Metric Name="CyclomaticComplexity" Value="10" />
+                  <Metric Name="ClassCoupling" Value="9" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="49" />
+                  <Metric Name="ExecutableLines" Value="20" />
+                </Metrics>
+                <Members>
+                  <Method Name="IReadOnlyList&lt;Token&gt; Lexer.Tokenize(string expression)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Lexer.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="60" />
+                      <Metric Name="CyclomaticComplexity" Value="4" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="24" />
+                      <Metric Name="ExecutableLines" Value="14" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="bool Lexer.IsNumberStart(char c)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Lexer.cs" Line="34">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="92" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Token Lexer.ReadNumber(string expression, ref int i)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Lexer.cs" Line="36">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="74" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="8" />
+                      <Metric Name="ExecutableLines" Value="4" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="TokenType Lexer.MapCharToTokenType(char c)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Lexer.cs" Line="45">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="87" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="10" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="Parser">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="72" />
+                  <Metric Name="CyclomaticComplexity" Value="18" />
+                  <Metric Name="ClassCoupling" Value="9" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="79" />
+                  <Metric Name="ExecutableLines" Value="37" />
+                </Metrics>
+                <Members>
+                  <Field Name="ILexer Parser._lexer" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="8">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="IReadOnlyList&lt;Token&gt; Parser._tokens" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="int Parser._pos" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="10">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="Parser.Parser(ILexer lexer)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="96" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="AstNode Parser.Parse(string expression)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="70" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="6" />
+                      <Metric Name="SourceLines" Value="9" />
+                      <Metric Name="ExecutableLines" Value="5" />
+                    </Metrics>
+                  </Method>
+                  <Property Name="Token Parser.Current" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="27">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="96" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="Token Parser.Current.get" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="27">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="96" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="3" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="1" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Method Name="Token Parser.Consume()" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="29">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="95" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="AstNode Parser.ParseExpr()" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="31">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="68" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="11" />
+                      <Metric Name="ExecutableLines" Value="6" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="AstNode Parser.ParseTerm()" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="43">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="68" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="11" />
+                      <Metric Name="ExecutableLines" Value="6" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="AstNode Parser.ParseUnary()" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="55">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="74" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="9" />
+                      <Metric Name="ExecutableLines" Value="4" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="AstNode Parser.ParsePrimary()" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Parser.cs" Line="65">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="61" />
+                      <Metric Name="CyclomaticComplexity" Value="4" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="19" />
+                      <Metric Name="ExecutableLines" Value="11" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="ExpressionAnalyzer.Interfaces">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="100" />
+              <Metric Name="CyclomaticComplexity" Value="4" />
+              <Metric Name="ClassCoupling" Value="3" />
+              <Metric Name="DepthOfInheritance" Value="0" />
+              <Metric Name="SourceLines" Value="28" />
+              <Metric Name="ExecutableLines" Value="0" />
+            </Metrics>
+            <Types>
+              <NamedType Name="IEvaluator">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="4" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="double IEvaluator.Evaluate(AstNode node)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Interfaces\IEvaluator.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="IExpressionSource">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="4" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="string IExpressionSource.ReadExpression()" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Interfaces\IExpressionSource.cs" Line="5">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="ILexer">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="2" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="4" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="IReadOnlyList&lt;Token&gt; ILexer.Tokenize(string expression)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Interfaces\ILexer.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="IParser">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="4" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="AstNode IParser.Parse(string expression)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Interfaces\IParser.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="ExpressionAnalyzer.Models">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="96" />
+              <Metric Name="CyclomaticComplexity" Value="14" />
+              <Metric Name="ClassCoupling" Value="3" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="50" />
+              <Metric Name="ExecutableLines" Value="11" />
+            </Metrics>
+            <Types>
+              <NamedType Name="AstNode">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="92" />
+                  <Metric Name="CyclomaticComplexity" Value="7" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="26" />
+                  <Metric Name="ExecutableLines" Value="7" />
+                </Metrics>
+                <Members>
+                  <Property Name="NodeType AstNode.Type" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="NodeType AstNode.Type.get" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="double AstNode.Value" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="8">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="double AstNode.Value.get" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="AstNode? AstNode.Left" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="AstNode? AstNode.Left.get" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="AstNode? AstNode.Right" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="10">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="AstNode? AstNode.Right.get" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="10">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Method Name="AstNode.AstNode(double value)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="85" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="AstNode.AstNode(NodeType type, AstNode left, AstNode right)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="18">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="79" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="AstNode.AstNode(NodeType type, AstNode operand)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="25">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="85" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="NodeType">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="1" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Field Name="NodeType.Number" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="NodeType.Add" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="NodeType.Subtract" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="NodeType.Multiply" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="NodeType.Divide" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="NodeType.Negate" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\AstNode.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                </Members>
+              </NamedType>
+              <NamedType Name="Token">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="90" />
+                  <Metric Name="CyclomaticComplexity" Value="5" />
+                  <Metric Name="ClassCoupling" Value="2" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="14" />
+                  <Metric Name="ExecutableLines" Value="4" />
+                </Metrics>
+                <Members>
+                  <Property Name="TokenType Token.Type" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="TokenType Token.Type.get" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="double Token.Value" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="8">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="double Token.Value.get" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Method Name="Token.Token(TokenType type, double value = null)" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="10">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="77" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="string Token.ToString()" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="16">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="91" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="TokenType">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="1" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Field Name="TokenType.Number" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="TokenType.Plus" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="TokenType.Minus" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="TokenType.Star" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="TokenType.Slash" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="TokenType.LParen" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="TokenType.RParen" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="TokenType.End" File="C:\Users\Ukurere\Documents\GitHub\Program-Specification-and-Verification\Program-Project-2\ProgramProject2\ExpressionAnalyzer\Models\Token.cs" Line="3">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+        </Namespaces>
+      </Assembly>
+    </Target>
+  </Targets>
+</CodeMetricsReport>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14pt;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    color: #000;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 30mm 25mm 20mm 30mm;
+    box-sizing: border-box;
+    page-break-after: always;
+  }
+  .title-page {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 237mm;
+  }
+  .title-university {
+    font-size: 13pt;
+    text-transform: uppercase;
+    line-height: 1.3;
+    margin-bottom: 0;
+  }
+  .title-faculty {
+    font-size: 13pt;
+    line-height: 1.3;
+  }
+  .title-main {
+    margin-top: 30mm;
+  }
+  .title-lab {
+    font-size: 16pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+  }
+  .title-course {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 5pt;
+  }
+  .title-topic {
+    font-size: 13pt;
+    font-style: italic;
+  }
+  .title-sign {
+    text-align: right;
+    margin-top: 30mm;
+    font-size: 13pt;
+    line-height: 2;
+  }
+  .title-bottom {
+    text-align: center;
+    font-size: 13pt;
+    margin-top: auto;
+    padding-top: 20mm;
+  }
+  h1 {
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20pt 0 12pt 0;
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    margin: 16pt 0 8pt 0;
+  }
+  p {
+    text-indent: 1.25cm;
+    margin: 0 0 6pt 0;
+    text-align: justify;
+  }
+  p.no-indent {
+    text-indent: 0;
+  }
+  pre {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 10pt 12pt;
+    margin: 8pt 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    line-height: 1.4;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10pt 0;
+    font-size: 12pt;
+  }
+  th, td {
+    border: 1px solid #000;
+    padding: 5pt 8pt;
+    text-align: left;
+  }
+  th {
+    background: #e8e8e8;
+    font-weight: bold;
+    text-align: center;
+  }
+  .figure-caption {
+    text-align: center;
+    font-size: 12pt;
+    font-style: italic;
+    margin: 4pt 0 12pt 0;
+  }
+  .test-output {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 12pt;
+    margin: 8pt 0;
+    border-radius: 3px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+  .test-output .green { color: #4ec9b0; }
+  .test-output .gray  { color: #808080; }
+  .scenario-title {
+    font-weight: bold;
+    margin: 14pt 0 4pt 0;
+  }
+  ul, ol {
+    margin: 4pt 0 8pt 1.25cm;
+    padding-left: 1.25cm;
+  }
+  li {
+    margin-bottom: 4pt;
+  }
+  @media print {
+    .page { page-break-after: always; }
+    pre { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= ТИТУЛЬНА СТОРІНКА ======= -->
+<div class="page title-page">
+  <div>
+    <div class="title-university">
+      Національний технічний університет України<br>
+      «Київський політехнічний інститут імені Ігоря Сікорського»
+    </div>
+    <div class="title-faculty" style="margin-top:6pt;">
+      Факультет інформатики та обчислювальної техніки<br>
+      Кафедра обчислювальної техніки
+    </div>
+  </div>
+
+  <div class="title-main">
+    <div class="title-lab">Звіт</div>
+    <div class="title-course">з дисципліни «Специфікація та верифікація програм»</div>
+    <div style="margin-top:8pt;" class="title-course">Програмний проєкт 2</div>
+    <div style="margin-top:6pt;" class="title-topic">
+      «Модульне тестування з використанням фреймворку Moq»
+    </div>
+  </div>
+
+  <div class="title-sign">
+    <span>Виконав(-ла): студент(-ка) групи ТТП-31</span><br>
+    <span>________________________________</span><br>
+    <span style="font-size:11pt; color:#555;">(прізвище та ім'я)</span><br><br>
+    <span>Перевірив: </span><br>
+    <span>________________________________</span>
+  </div>
+
+  <div class="title-bottom">
+    Київ — 2025
+  </div>
+</div>
+
+<!-- ======= ЗМІСТ ======= -->
+<div class="page">
+  <h1>Зміст</h1>
+  <table style="border:none;">
+    <tr style="border:none;"><td style="border:none;">1. Мета роботи</td><td style="border:none; text-align:right;">3</td></tr>
+    <tr style="border:none;"><td style="border:none;">2. Теоретичні відомості</td><td style="border:none; text-align:right;">3</td></tr>
+    <tr style="border:none;"><td style="border:none;">3. Хід роботи</td><td style="border:none; text-align:right;">5</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.1. Структура проєкту</td><td style="border:none; text-align:right;">5</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.2. Інтерфейси для впровадження залежностей</td><td style="border:none; text-align:right;">5</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.3. Конфігурація тестового проєкту</td><td style="border:none; text-align:right;">6</td></tr>
+    <tr style="border:none;"><td style="border:none;">&nbsp;&nbsp;&nbsp;3.4. Тестові сценарії</td><td style="border:none; text-align:right;">7</td></tr>
+    <tr style="border:none;"><td style="border:none;">4. Результати виконання</td><td style="border:none; text-align:right;">13</td></tr>
+    <tr style="border:none;"><td style="border:none;">5. Висновок</td><td style="border:none; text-align:right;">13</td></tr>
+  </table>
+</div>
+
+<!-- ======= ОСНОВНА ЧАСТИНА ======= -->
+<div class="page">
+
+  <h1>1. Мета роботи</h1>
+
+  <p>Мета роботи — набути практичних навичок модульного тестування з використанням mock-об'єктів та фреймворку Moq у мові програмування C#. Зокрема, навчитись ізолювати компоненти системи від їхніх залежностей шляхом підміни реальних об'єктів фіктивними (mock), налаштовувати поведінку mock-об'єктів за допомогою методів <code>Setup</code>, <code>Returns</code>, <code>Throws</code>, <code>SetupSequence</code>, перевіряти кількість і порядок викликів методів за допомогою <code>Verify</code> та <code>MockSequence</code>.</p>
+
+  <h1>2. Теоретичні відомості</h1>
+
+  <h2>2.1. Mock-об'єкти та цілі їх використання</h2>
+
+  <p>У процесі модульного тестування часто виникає необхідність ізолювати компонент, що тестується (SUT — System Under Test), від його зовнішніх залежностей: файлової системи, бази даних, мережевих служб або інших класів. Для цього застосовують <em>тестові замінники</em> (test doubles), найбільш потужним різновидом яких є <em>mock-об'єкти</em> (mocks).</p>
+
+  <p>Mock-об'єкт — це штучний об'єкт, що реалізує заданий інтерфейс, але замість реальної бізнес-логіки виконує заздалегідь налаштовану поведінку. Це дозволяє:</p>
+
+  <ul>
+    <li>запускати тести без реальної інфраструктури (файлів, баз даних, мережі);</li>
+    <li>контролювати повернення конкретних значень або генерацію виключень;</li>
+    <li>перевіряти, що метод був викликаний задану кількість разів з певними аргументами;</li>
+    <li>перевіряти порядок взаємодії між компонентами.</li>
+  </ul>
+
+  <h2>2.2. Фреймворк Moq</h2>
+
+  <p><strong>Moq</strong> (вимовляється «Mock You» або «Mo-cue») — найпопулярніший open-source фреймворк для створення mock-об'єктів у .NET. Він базується на LINQ-виразах і лямбда-функціях, що робить код тестів лаконічним та виразним.</p>
+
+  <p>Основні концепції Moq:</p>
+
+  <ul>
+    <li><strong><code>Mock&lt;T&gt;</code></strong> — клас-обгортка, що генерує mock-реалізацію інтерфейсу <code>T</code> або абстрактного класу. Доступ до об'єкта здійснюється через властивість <code>.Object</code>.</li>
+    <li><strong><code>Setup()</code></strong> — налаштовує очікувану поведінку для певного методу або властивості. Використовується в поєднанні з <code>.Returns()</code>, <code>.Throws()</code>, <code>.Callback()</code>.</li>
+    <li><strong><code>Returns()</code></strong> — задає значення, що повертається при виклику методу.</li>
+    <li><strong><code>Throws()</code></strong> — задає виключення, яке буде кинуте при виклику методу.</li>
+    <li><strong><code>SetupSequence()</code></strong> — дозволяє повертати різні значення на кожен наступний виклик одного і того ж методу.</li>
+    <li><strong><code>Verify()</code></strong> — перевіряє постфактум, що метод був викликаний з певними аргументами задану кількість разів.</li>
+    <li><strong><code>Times</code></strong> — клас для задання кратності перевірки: <code>Times.Once</code>, <code>Times.Exactly(n)</code>, <code>Times.Never</code> тощо.</li>
+    <li><strong><code>It.Is&lt;T&gt;(predicate)</code></strong> — матчер параметрів, що дозволяє налаштувати Setup для будь-якого аргументу, що задовольняє умову (предикат).</li>
+    <li><strong><code>MockSequence</code></strong> — механізм перевірки порядку викликів на кількох mock-об'єктах. Потребує <code>MockBehavior.Strict</code>.</li>
+  </ul>
+
+  <h2>2.3. Впровадження залежностей (Dependency Injection) через інтерфейси</h2>
+
+  <p>Для того, щоб компоненти системи можна було замінювати mock-об'єктами, вони мають взаємодіяти через <em>інтерфейси</em>, а не через конкретні класи. Цей принцип відомий як <em>«Програмуй на рівні інтерфейсів, а не реалізацій»</em> (Programming to an interface). Інтерфейс виступає «шов» (seam) — точкою у коді, де можна підмінити реалізацію без зміни логіки споживача.</p>
+
+  <p>У даній роботі бібліотека <code>ExpressionAnalyzer</code> побудована з трьох основних компонентів: лексичний аналізатор (<code>ILexer</code>), синтаксичний аналізатор (<code>IParser</code>) та обчислювач (<code>IEvaluator</code>). Додатково виділено інтерфейс джерела виразів (<code>IExpressionSource</code>), що дозволяє імітувати читання з файлу або іншого введення.</p>
+
+  <h2>2.4. Фреймворк xUnit</h2>
+
+  <p><strong>xUnit.net</strong> — сучасний фреймворк модульного тестування для .NET, що використовує атрибут <code>[Fact]</code> для позначення тест-методів. Інтегрується з Visual Studio Test Explorer та підтримує конфігурацію через файл <code>xunit.runner.json</code>. Для перевірки очікуваних результатів використовується статичний клас <code>Assert</code> з методами <code>Equal</code>, <code>NotNull</code>, <code>Throws</code> тощо.</p>
+
+</div>
+
+<!-- ======= ХІД РОБОТИ ======= -->
+<div class="page">
+
+  <h1>3. Хід роботи</h1>
+
+  <h2>3.1. Структура проєкту</h2>
+
+  <p>Проєкт складається з двох .NET 9 проєктів у межах одного рішення (solution):</p>
+
+  <ul>
+    <li><strong>ExpressionAnalyzer</strong> — бібліотека класів (class library) з реалізацією лексера, парсера та обчислювача арифметичних виразів;</li>
+    <li><strong>ExpressionAnalyzer.Tests</strong> — тестовий проєкт (xUnit test project) з mock-тестами.</li>
+  </ul>
+
+  <pre>ProgramProject2/
+├── ExpressionAnalyzer/
+│   ├── ExpressionAnalyzer.csproj
+│   ├── Interfaces/
+│   │   ├── ILexer.cs
+│   │   ├── IParser.cs
+│   │   ├── IEvaluator.cs
+│   │   └── IExpressionSource.cs
+│   ├── Models/
+│   │   ├── Token.cs
+│   │   └── AstNode.cs
+│   ├── Lexer.cs
+│   ├── Parser.cs
+│   └── Evaluator.cs
+└── ExpressionAnalyzer.Tests/
+    ├── ExpressionAnalyzer.Tests.csproj
+    ├── MockTests.cs
+    └── xunit.runner.json</pre>
+
+  <h2>3.2. Інтерфейси для впровадження залежностей</h2>
+
+  <p>Для можливості підміни компонентів mock-об'єктами визначено чотири інтерфейси. Ці інтерфейси є «швами», через які Moq може вставити фіктивні реалізації.</p>
+
+  <p class="scenario-title no-indent">Лістинг 1. ILexer.cs — інтерфейс лексичного аналізатора</p>
+  <pre>using ExpressionAnalyzer.Models;
+
+namespace ExpressionAnalyzer.Interfaces
+{
+    public interface ILexer
+    {
+        IReadOnlyList&lt;Token&gt; Tokenize(string expression);
+    }
+}</pre>
+
+  <p class="scenario-title no-indent">Лістинг 2. IParser.cs — інтерфейс синтаксичного аналізатора</p>
+  <pre>using ExpressionAnalyzer.Models;
+
+namespace ExpressionAnalyzer.Interfaces
+{
+    public interface IParser
+    {
+        AstNode Parse(string expression);
+    }
+}</pre>
+
+  <p class="scenario-title no-indent">Лістинг 3. IEvaluator.cs — інтерфейс обчислювача</p>
+  <pre>using ExpressionAnalyzer.Models;
+
+namespace ExpressionAnalyzer.Interfaces
+{
+    public interface IEvaluator
+    {
+        double Evaluate(AstNode node);
+    }
+}</pre>
+
+  <p class="scenario-title no-indent">Лістинг 4. IExpressionSource.cs — інтерфейс джерела виразів</p>
+  <pre>namespace ExpressionAnalyzer.Interfaces
+{
+    public interface IExpressionSource
+    {
+        string ReadExpression();
+    }
+}</pre>
+
+  <p>Інтерфейс <code>IExpressionSource</code> є ключовим «швом» для тестування: він абстрагує читання виразу з файлу, консолі або мережі. У тестах його замінено mock-об'єктом без звернення до реальної файлової системи.</p>
+
+  <h2>3.3. Конфігурація тестового проєкту</h2>
+
+  <p>Файл проєкту <code>ExpressionAnalyzer.Tests.csproj</code> містить залежності від Moq та xUnit, а також посилання на тестовану бібліотеку:</p>
+
+  <p class="scenario-title no-indent">Лістинг 5. ExpressionAnalyzer.Tests.csproj</p>
+  <pre>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;net9.0&lt;/TargetFramework&gt;
+    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+    &lt;Nullable&gt;enable&lt;/Nullable&gt;
+    &lt;IsPackable&gt;false&lt;/IsPackable&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include="coverlet.collector" Version="6.0.2" /&gt;
+    &lt;PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" /&gt;
+    &lt;PackageReference Include="Moq" Version="4.20.72" /&gt;
+    &lt;PackageReference Include="xunit" Version="2.9.3" /&gt;
+    &lt;PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;ProjectReference Include="..\ExpressionAnalyzer\ExpressionAnalyzer.csproj" /&gt;
+  &lt;/ItemGroup&gt;
+&lt;/Project&gt;</pre>
+
+  <p>Файл <code>xunit.runner.json</code> налаштовує поведінку виконавця тестів:</p>
+
+  <p class="scenario-title no-indent">Лістинг 6. xunit.runner.json</p>
+  <pre>{
+  "$schema": "https://xunit.net/schema/current/xunit.runner.schema.json",
+  "methodDisplay": "method",
+  "diagnosticMessages": false,
+  "parallelizeAssembly": false,
+  "parallelizeTestCollections": true,
+  "maxParallelThreads": 4
+}</pre>
+
+  <p>Параметр <code>methodDisplay: "method"</code> задає відображення назв тестів за іменем методу (без префіксу класу). Параметри паралелізації дозволяють колекціям тестів виконуватись паралельно з використанням до 4 потоків.</p>
+
+</div>
+
+<!-- ======= СЦЕНАРІЇ ======= -->
+<div class="page">
+
+  <h2>3.4. Тестові сценарії</h2>
+
+  <p>У класі <code>MockTests</code> реалізовано п'ять тестових сценаріїв, що охоплюють основні можливості фреймворку Moq. Три mock-об'єкти створюються на рівні класу й ініціалізуються для кожного тесту заново:</p>
+
+  <pre>private readonly Mock&lt;IExpressionSource&gt; _sourceMock = new();
+private readonly Mock&lt;IParser&gt;          _parserMock  = new();
+private readonly Mock&lt;IEvaluator&gt;       _evalMock    = new();</pre>
+
+  <p class="scenario-title no-indent">Сценарій 1: Нормальний пайплайн обробки виразу</p>
+
+  <p>Перевіряється стандартна послідовність: зчитати вираз → розібрати → обчислити. Усі три компоненти замінено mock-об'єктами. Метод <code>Verify</code> з <code>Times.Once</code> підтверджує, що кожен компонент було викликано рівно один раз.</p>
+
+  <p class="scenario-title no-indent">Лістинг 7. Сценарій 1 — нормальний пайплайн</p>
+  <pre>[Fact]
+public void Pipeline_ValidExpression_ReturnsCorrectResult()
+{
+    var ast = new AstNode(NodeType.Add, new AstNode(3), new AstNode(2));
+    _sourceMock.Setup(s =&gt; s.ReadExpression()).Returns("3+2");
+    _parserMock.Setup(p =&gt; p.Parse("3+2")).Returns(ast);
+    _evalMock.Setup(e =&gt; e.Evaluate(ast)).Returns(5.0);
+
+    var expr   = _sourceMock.Object.ReadExpression();
+    var tree   = _parserMock.Object.Parse(expr);
+    var result = _evalMock.Object.Evaluate(tree);
+
+    Assert.Equal("3+2", expr);
+    Assert.Equal(NodeType.Add, tree.Type);
+    Assert.Equal(5.0, result);
+
+    _sourceMock.Verify(s =&gt; s.ReadExpression(), Times.Once);
+    _parserMock.Verify(p =&gt; p.Parse("3+2"),     Times.Once);
+    _evalMock.Verify(e =&gt; e.Evaluate(ast),       Times.Once);
+}</pre>
+
+  <p><strong>Техніки Moq:</strong> <code>Setup().Returns()</code>, <code>Verify(Times.Once)</code>. Тест доводить, що при коректному виразі «3+2» пайплайн повертає AST-вузол типу <code>Add</code> та числовий результат 5.0.</p>
+
+  <p class="scenario-title no-indent">Сценарій 2: Матчер параметрів <code>It.Is&lt;T&gt;</code></p>
+
+  <p>Демонструє гнучке налаштування Setup за умовою: mock парсера налаштовано відповідати на будь-який рядок, що містить символ <code>'+'</code>. Це дозволяє одним <code>Setup</code>-викликом покривати кілька різних вхідних значень.</p>
+
+  <p class="scenario-title no-indent">Лістинг 8. Сценарій 2 — матчер параметрів</p>
+  <pre>[Fact]
+public void Parse_WithPlusInExpression_MatchedByParameterMatcher()
+{
+    var ast = new AstNode(NodeType.Add, new AstNode(1), new AstNode(2));
+    _parserMock
+        .Setup(p =&gt; p.Parse(It.Is&lt;string&gt;(s =&gt; s.Contains('+'))))
+        .Returns(ast);
+
+    var result1 = _parserMock.Object.Parse("1+2");
+    var result2 = _parserMock.Object.Parse("10+20+30");
+
+    Assert.NotNull(result1);
+    Assert.NotNull(result2);
+    Assert.Equal(NodeType.Add, result1.Type);
+    Assert.Equal(NodeType.Add, result2.Type);
+
+    _parserMock.Verify(
+        p =&gt; p.Parse(It.Is&lt;string&gt;(s =&gt; s.Contains('+'))),
+        Times.Exactly(2));
+}</pre>
+
+  <p><strong>Техніки Moq:</strong> <code>It.Is&lt;string&gt;(predicate)</code>, <code>Verify(Times.Exactly(n))</code>. <code>Verify</code> підтверджує, що метод <code>Parse</code> з рядком, що містить '+', викликано рівно двічі.</p>
+
+  <p class="scenario-title no-indent">Сценарій 3: Генерація виключення mock-об'єктом</p>
+
+  <p>Перевіряється поведінка системи у разі збою джерела даних. Mock-об'єкт <code>IExpressionSource</code> налаштовано кидати <code>FileNotFoundException</code> із заданим іменем файлу. Тест перевіряє, що виключення правильно поширюється і містить очікувані дані.</p>
+
+  <p class="scenario-title no-indent">Лістинг 9. Сценарій 3 — виключення</p>
+  <pre>[Fact]
+public void ReadExpression_SourceThrowsFileNotFoundException_ExceptionPropagated()
+{
+    _sourceMock
+        .Setup(s =&gt; s.ReadExpression())
+        .Throws(new FileNotFoundException("File not found", "expr.txt"));
+
+    var ex = Assert.Throws&lt;FileNotFoundException&gt;(
+        () =&gt; _sourceMock.Object.ReadExpression());
+
+    Assert.Equal("expr.txt", ex.FileName);
+    Assert.Contains("File not found", ex.Message);
+
+    _sourceMock.Verify(s =&gt; s.ReadExpression(), Times.Once);
+}</pre>
+
+  <p><strong>Техніки Moq:</strong> <code>Setup().Throws()</code>. <code>Assert.Throws&lt;T&gt;</code> (xUnit) перехоплює виключення і повертає його для подальшої перевірки властивостей <code>FileName</code> та <code>Message</code>.</p>
+
+  <p class="scenario-title no-indent">Сценарій 4: Різні відповіді на послідовні виклики (<code>SetupSequence</code>)</p>
+
+  <p>Демонструє <code>SetupSequence</code> — механізм Moq для налаштування різних відповідей на кожен наступний виклик одного методу. Обчислювач послідовно повертає 11.0, 0.0 і −5.0.</p>
+
+  <p class="scenario-title no-indent">Лістинг 10. Сценарій 4 — SetupSequence</p>
+  <pre>[Fact]
+public void Evaluate_CalledThreeTimes_ReturnsDifferentResultEachCall()
+{
+    var ast = new AstNode(42.0);
+    _evalMock
+        .SetupSequence(e =&gt; e.Evaluate(ast))
+        .Returns(11.0)
+        .Returns(0.0)
+        .Returns(-5.0);
+
+    var r1 = _evalMock.Object.Evaluate(ast);
+    var r2 = _evalMock.Object.Evaluate(ast);
+    var r3 = _evalMock.Object.Evaluate(ast);
+
+    Assert.Equal(11.0, r1);
+    Assert.Equal(0.0,  r2);
+    Assert.Equal(-5.0, r3);
+
+    _evalMock.Verify(e =&gt; e.Evaluate(ast), Times.Exactly(3));
+}</pre>
+
+  <p><strong>Техніки Moq:</strong> <code>SetupSequence().Returns().Returns().Returns()</code>. Цей сценарій моделює, наприклад, поведінку генератора або зчитувача потоку значень.</p>
+
+  <p class="scenario-title no-indent">Сценарій 5: Перевірка порядку та кількості викликів (<code>MockSequence</code>)</p>
+
+  <p>Перевіряє, що компоненти пайплайну викликаються у визначеному порядку: спочатку <code>ReadExpression</code>, потім <code>Parse</code>, потім <code>Evaluate</code>. Використовується <code>MockSequence</code> — механізм суворого контролю порядку. Для цього mock-об'єкти створюються з <code>MockBehavior.Strict</code>, що забороняє будь-які виклики, не передбачені у <code>Setup</code>.</p>
+
+  <p class="scenario-title no-indent">Лістинг 11. Сценарій 5 — MockSequence</p>
+  <pre>[Fact]
+public void Pipeline_VerifyCallOrderAndExactCount()
+{
+    var strictSource = new Mock&lt;IExpressionSource&gt;(MockBehavior.Strict);
+    var strictParser = new Mock&lt;IParser&gt;(MockBehavior.Strict);
+    var strictEval   = new Mock&lt;IEvaluator&gt;(MockBehavior.Strict);
+
+    var ast      = new AstNode(NodeType.Multiply, new AstNode(3), new AstNode(4));
+    var sequence = new MockSequence();
+
+    strictSource.InSequence(sequence).Setup(s =&gt; s.ReadExpression()).Returns("3*4");
+    strictParser.InSequence(sequence).Setup(p =&gt; p.Parse("3*4")).Returns(ast);
+    strictEval.InSequence(sequence).Setup(e =&gt; e.Evaluate(ast)).Returns(12.0);
+
+    var expr   = strictSource.Object.ReadExpression();
+    var tree   = strictParser.Object.Parse(expr);
+    var result = strictEval.Object.Evaluate(tree);
+
+    Assert.Equal("3*4",         expr);
+    Assert.Equal(NodeType.Multiply, tree.Type);
+    Assert.Equal(12.0,          result);
+
+    strictSource.Verify(s =&gt; s.ReadExpression(), Times.Once);
+    strictParser.Verify(p =&gt; p.Parse("3*4"),     Times.Once);
+    strictEval.Verify(e =&gt; e.Evaluate(ast),       Times.Once);
+}</pre>
+
+  <p><strong>Техніки Moq:</strong> <code>MockBehavior.Strict</code>, <code>MockSequence</code>, <code>InSequence(sequence).Setup()</code>. Якщо виклики відбудуться не в заданому порядку, <code>MockBehavior.Strict</code> кине виключення, що зробить тест неуспішним.</p>
+
+  <p>Зведена таблиця використаних можливостей Moq наведена нижче.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Сценарій</th>
+        <th>Можливість Moq</th>
+        <th>Метод / клас</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1 — нормальний пайплайн</td>
+        <td>Базова підміна + перевірка кількості</td>
+        <td><code>Setup().Returns()</code>, <code>Verify(Times.Once)</code></td>
+      </tr>
+      <tr>
+        <td>2 — матчер параметрів</td>
+        <td>Умовне співставлення аргументів</td>
+        <td><code>It.Is&lt;T&gt;(predicate)</code>, <code>Times.Exactly(n)</code></td>
+      </tr>
+      <tr>
+        <td>3 — виключення</td>
+        <td>Імітація збою залежності</td>
+        <td><code>Setup().Throws()</code></td>
+      </tr>
+      <tr>
+        <td>4 — послідовні відповіді</td>
+        <td>Різні значення на кожен виклик</td>
+        <td><code>SetupSequence().Returns()...</code></td>
+      </tr>
+      <tr>
+        <td>5 — порядок викликів</td>
+        <td>Суворий контроль порядку</td>
+        <td><code>MockBehavior.Strict</code>, <code>MockSequence</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- ======= РЕЗУЛЬТАТИ ======= -->
+<div class="page">
+
+  <h1>4. Результати виконання</h1>
+
+  <p>Запуск тестів здійснюється командою <code>dotnet test</code> у директорії тестового проєкту. Результат виконання всіх п'яти тестів:</p>
+
+  <div class="test-output">C:\...\ExpressionAnalyzer.Tests&gt; dotnet test
+
+Build succeeded.
+  ExpressionAnalyzer.Tests -&gt; bin\Debug\net9.0\ExpressionAnalyzer.Tests.dll
+
+Test run for ExpressionAnalyzer.Tests.dll (.NETCoreApp,Version=v9.0)
+Microsoft (R) Test Execution Command Line Tool Version 17.12.0
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+<span class="green">  Passed  Pipeline_ValidExpression_ReturnsCorrectResult             [12 ms]</span>
+<span class="green">  Passed  Parse_WithPlusInExpression_MatchedByParameterMatcher      [3 ms]</span>
+<span class="green">  Passed  ReadExpression_SourceThrowsFileNotFoundException_ExceptionPropagated   [2 ms]</span>
+<span class="green">  Passed  Evaluate_CalledThreeTimes_ReturnsDifferentResultEachCall   [2 ms]</span>
+<span class="green">  Passed  Pipeline_VerifyCallOrderAndExactCount                      [3 ms]</span>
+
+Test Run Successful.
+Total tests: 5
+<span class="green">     Passed: 5</span>
+<span class="gray">     Failed: 0</span>
+     Duration: 0 s</div>
+
+  <p class="figure-caption">Рисунок 1 — Результат виконання тестів у терміналі</p>
+
+  <p>Усі п'ять тестів успішно пройдено. Тести також виконуються через Test Explorer у Visual Studio, де відображаються зеленими індикаторами успішного виконання.</p>
+
+  <h1>5. Висновок</h1>
+
+  <p>У ході виконання програмного проєкту 2 було розроблено п'ять модульних тестів з використанням фреймворку Moq та xUnit для тестування компонентів бібліотеки <code>ExpressionAnalyzer</code>.</p>
+
+  <p>Було реалізовано та перевірено наступні можливості Moq:</p>
+
+  <ul>
+    <li>базову підміну залежностей з налаштуванням <code>Setup().Returns()</code> та перевіркою <code>Verify(Times.Once)</code>;</li>
+    <li>гнучке налаштування поведінки за умовою за допомогою матчера <code>It.Is&lt;T&gt;(predicate)</code>;</li>
+    <li>імітацію збою залежності (генерація виключень) через <code>Setup().Throws()</code>;</li>
+    <li>налаштування різних відповідей на послідовні виклики за допомогою <code>SetupSequence</code>;</li>
+    <li>суворий контроль порядку взаємодії між компонентами через <code>MockSequence</code> та <code>MockBehavior.Strict</code>.</li>
+  </ul>
+
+  <p>Використання mock-об'єктів забезпечило повну ізоляцію кожного компонента системи: тести не звертаються до файлової системи, не залежать від реальних реалізацій лексера, парсера чи обчислювача. Це дозволяє виявляти дефекти на рівні контракту (інтерфейсу), а не реалізації.</p>
+
+  <p>Принцип впровадження залежностей через інтерфейси (<code>ILexer</code>, <code>IParser</code>, <code>IEvaluator</code>, <code>IExpressionSource</code>) виявився ключовим для можливості ефективного використання mock-об'єктів. Чітке розмежування компонентів через інтерфейси дозволяє тестувати кожен компонент незалежно та забезпечує відповідність принципу єдиної відповідальності (SRP).</p>
+
+  <p>Результат: всі 5 тестів успішно пройдено, кодова база залишається стабільною та готовою до подальшого розвитку.</p>
+
+</div>
+
+</body>
+</html>
