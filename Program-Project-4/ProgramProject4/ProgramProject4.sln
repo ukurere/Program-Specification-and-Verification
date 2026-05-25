@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionAnalyzer", "ExpressionAnalyzer\ExpressionAnalyzer.csproj", "{A3C71F02-5D3B-4E8A-9F1C-2B6D8E3A4F05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionAnalyzer.Tests", "ExpressionAnalyzer.Tests\ExpressionAnalyzer.Tests.csproj", "{D2F84C13-6E4A-5F9B-0A2D-3C7E9F1B5D06}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3C71F02-5D3B-4E8A-9F1C-2B6D8E3A4F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C71F02-5D3B-4E8A-9F1C-2B6D8E3A4F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C71F02-5D3B-4E8A-9F1C-2B6D8E3A4F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C71F02-5D3B-4E8A-9F1C-2B6D8E3A4F05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F84C13-6E4A-5F9B-0A2D-3C7E9F1B5D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F84C13-6E4A-5F9B-0A2D-3C7E9F1B5D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F84C13-6E4A-5F9B-0A2D-3C7E9F1B5D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F84C13-6E4A-5F9B-0A2D-3C7E9F1B5D06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B1C3D24-7F5E-4A9B-B3E6-1D0F2C8A6E47}
+	EndGlobalSection
+EndGlobal
